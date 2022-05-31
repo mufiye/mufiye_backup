@@ -10,7 +10,7 @@ qemu-system-x86_64 \
 -virtfs local,id=kmod_dev,path=/home/mufiye/mufiye_kernel/${kernel_version}/mod,readonly=on,mount_tag=9p,security_model=none \
 -vga none \
 -nographic \
--append "console=ttyS0 root=/dev/vda rw kmemleak=on" \
+-append "nokaslr console=ttyS0 root=/dev/vda rw kmemleak=on" \
 -device virtio-scsi-pci \
 -drive file=bullseye.qcow2,if=none,format=qcow2,cache=writeback,file.locking=off,id=root \
 -device virtio-blk,drive=root,id=d_root \

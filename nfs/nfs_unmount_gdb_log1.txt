@@ -1,0 +1,99 @@
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0xffffffff83c48b07 in rpc_execute at net/sunrpc/sched.c:998
+	breakpoint already hit 22 times
+Continuing.
+[Switching to Thread 1.5]
+
+Thread 5 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff8880147de140) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff8880147de140) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff888010c3fc90)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff83bf2109 in rpc_call_sync (clnt=0xffff88800842b400, 
+    msg=msg@entry=0xffff888010c3fd48, flags=flags@entry=4352) at net/sunrpc/clnt.c:1182
+#3  0xffffffff81e78baf in nfs4_proc_destroy_session (session=session@entry=0xffff888010bfa800, 
+    cred=cred@entry=0xffffffff857ab940 <machine_cred>) at fs/nfs/nfs4proc.c:9282
+#4  0xffffffff81ed0222 in nfs4_destroy_session (session=0xffff888010bfa800)
+    at fs/nfs/nfs4session.c:587
+#5  0xffffffff81eca6fc in nfs41_shutdown_client (clp=0xffff888010bfb000) at fs/nfs/nfs4client.c:183
+#6  0xffffffff81ec7ea0 in nfs4_shutdown_client (clp=clp@entry=0xffff888010bfb000)
+    at fs/nfs/nfs4client.c:286
+#7  0xffffffff81ecaf83 in nfs4_free_client (clp=0xffff888010bfb000) at fs/nfs/nfs4client.c:300
+#8  0xffffffff81d9f336 in nfs_put_client (clp=0xffff888010bfb000) at fs/nfs/client.c:271
+#9  0xffffffff81da2382 in nfs_free_server (server=server@entry=0xffff888007ead000)
+    at fs/nfs/client.c:1001
+#10 0xffffffff81dd431d in nfs_kill_super (s=0xffff888007eae000) at fs/nfs/super.c:1339
+#11 0xffffffff8197bc33 in deactivate_locked_super (s=s@entry=0xffff888007eae000) at fs/super.c:332
+#12 0xffffffff8197bd49 in deactivate_super (s=0xffff888007eae000) at fs/super.c:363
+#13 0xffffffff819e701c in cleanup_mnt (mnt=mnt@entry=0xffff88800f779e00) at fs/namespace.c:1186
+#14 0xffffffff819e70ef in __cleanup_mnt (head=0xffff88800f779e40) at fs/namespace.c:1193
+#15 0xffffffff81234b34 in task_work_run () at kernel/task_work.c:177
+#16 0xffffffff8137e8db in resume_user_mode_work (regs=0xffff888010c3ff58) at ./include/linux/resume_user_mode.h:49
+#17 exit_to_user_mode_loop (regs=regs@entry=0xffff888010c3ff58, ti_work=ti_work@entry=16386) at kernel/entry/common.c:169
+#18 0xffffffff8137ea01 in exit_to_user_mode_prepare (regs=regs@entry=0xffff888010c3ff58) at kernel/entry/common.c:201
+#19 0xffffffff83dab0fd in __syscall_exit_to_user_mode_work (regs=0xffff888010c3ff58) at kernel/entry/common.c:283
+#20 syscall_exit_to_user_mode (regs=regs@entry=0xffff888010c3ff58) at kernel/entry/common.c:294
+#21 0xffffffff83da6140 in do_syscall_64 (regs=0xffff888010c3ff58, nr=<optimized out>) at arch/x86/entry/common.c:86
+#22 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#23 0x00005562bc3eb5c0 in ?? ()
+#24 0x00005562bc3e73d0 in ?? ()
+#25 0x00005562bc3ecba0 in ?? ()
+#26 0x0000000000000003 in fixed_percpu_data ()
+#27 0x00005562bc3e72c0 in ?? ()
+#28 0x00007f3232af3264 in ?? ()
+#29 0x0000000000000206 in ?? ()
+#30 0xfffffffffffff6fe in ?? ()
+#31 0x00007f3232a90be0 in ?? ()
+#32 0x0000000000000001 in fixed_percpu_data ()
+#33 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 5 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff8880147df2c0) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff8880147df2c0) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff888010c3fc60)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff83bf2109 in rpc_call_sync (clnt=0xffff88800842b400, 
+    msg=msg@entry=0xffff888010c3fd18, flags=flags@entry=4352) at net/sunrpc/clnt.c:1182
+#3  0xffffffff81e4f3ab in _nfs4_proc_destroy_clientid (clp=clp@entry=0xffff888010bfb000, 
+    cred=cred@entry=0xffffffff857ab940 <machine_cred>) at fs/nfs/nfs4proc.c:8935
+#4  0xffffffff81e4f5af in nfs4_proc_destroy_clientid (clp=clp@entry=0xffff888010bfb000, 
+    cred=cred@entry=0xffffffff857ab940 <machine_cred>) at fs/nfs/nfs4proc.c:8951
+#5  0xffffffff81e784b5 in nfs4_destroy_clientid (clp=clp@entry=0xffff888010bfb000)
+    at fs/nfs/nfs4proc.c:8976
+#6  0xffffffff81eca704 in nfs41_shutdown_client (clp=0xffff888010bfb000) at fs/nfs/nfs4client.c:184
+#7  0xffffffff81ec7ea0 in nfs4_shutdown_client (clp=clp@entry=0xffff888010bfb000)
+    at fs/nfs/nfs4client.c:286
+#8  0xffffffff81ecaf83 in nfs4_free_client (clp=0xffff888010bfb000) at fs/nfs/nfs4client.c:300
+#9  0xffffffff81d9f336 in nfs_put_client (clp=0xffff888010bfb000) at fs/nfs/client.c:271
+#10 0xffffffff81da2382 in nfs_free_server (server=server@entry=0xffff888007ead000)
+    at fs/nfs/client.c:1001
+#11 0xffffffff81dd431d in nfs_kill_super (s=0xffff888007eae000) at fs/nfs/super.c:1339
+#12 0xffffffff8197bc33 in deactivate_locked_super (s=s@entry=0xffff888007eae000) at fs/super.c:332
+#13 0xffffffff8197bd49 in deactivate_super (s=0xffff888007eae000) at fs/super.c:363
+#14 0xffffffff819e701c in cleanup_mnt (mnt=mnt@entry=0xffff88800f779e00) at fs/namespace.c:1186
+#15 0xffffffff819e70ef in __cleanup_mnt (head=0xffff88800f779e40) at fs/namespace.c:1193
+#16 0xffffffff81234b34 in task_work_run () at kernel/task_work.c:177
+#17 0xffffffff8137e8db in resume_user_mode_work (regs=0xffff888010c3ff58) at ./include/linux/resume_user_mode.h:49
+#18 exit_to_user_mode_loop (regs=regs@entry=0xffff888010c3ff58, ti_work=ti_work@entry=16386) at kernel/entry/common.c:169
+#19 0xffffffff8137ea01 in exit_to_user_mode_prepare (regs=regs@entry=0xffff888010c3ff58) at kernel/entry/common.c:201
+#20 0xffffffff83dab0fd in __syscall_exit_to_user_mode_work (regs=0xffff888010c3ff58) at kernel/entry/common.c:283
+#21 syscall_exit_to_user_mode (regs=regs@entry=0xffff888010c3ff58) at kernel/entry/common.c:294
+#22 0xffffffff83da6140 in do_syscall_64 (regs=0xffff888010c3ff58, nr=<optimized out>) at arch/x86/entry/common.c:86
+#23 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#24 0x00005562bc3eb5c0 in ?? ()
+#25 0x00005562bc3e73d0 in ?? ()
+#26 0x00005562bc3ecba0 in ?? ()
+#27 0x0000000000000003 in fixed_percpu_data ()
+#28 0x00005562bc3e72c0 in ?? ()
+#29 0x00007f3232af3264 in ?? ()
+#30 0x0000000000000206 in ?? ()
+#31 0xfffffffffffff6fe in ?? ()
+#32 0x00007f3232a90be0 in ?? ()
+#33 0x0000000000000001 in fixed_percpu_data ()
+#34 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 5 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}

@@ -1,0 +1,995 @@
+Breakpoint 1 at 0xffffffff83c48b07: file net/sunrpc/sched.c, line 998.
+Continuing.
+[Switching to Thread 1.7]
+
+Thread 7 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800d96d900) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800d96d900) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f6d0)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff83bf0de6 in rpc_call_null_helper (clnt=clnt@entry=0xffff88800842b400, 
+    xprt=xprt@entry=0x0 <fixed_percpu_data>, cred=cred@entry=0x0 <fixed_percpu_data>, 
+    flags=flags@entry=0, ops=ops@entry=0x0 <fixed_percpu_data>, 
+    data=data@entry=0x0 <fixed_percpu_data>) at net/sunrpc/clnt.c:2754
+#3  0xffffffff83bf0e65 in rpc_ping (clnt=clnt@entry=0xffff88800842b400) at net/sunrpc/clnt.c:2768
+#4  0xffffffff83bf1a39 in rpc_create_xprt (args=args@entry=0xffff88800fd3f900, 
+    xprt=xprt@entry=0xffff8880149b4000) at net/sunrpc/clnt.c:482
+#5  0xffffffff83bf1da7 in rpc_create (args=args@entry=0xffff88800fd3f900) at net/sunrpc/clnt.c:604
+#6  0xffffffff81d9facf in nfs_create_rpc_client (clp=clp@entry=0xffff888010bfb000, 
+    cl_init=cl_init@entry=0xffff88800fd3fbb0, flavor=flavor@entry=1) at fs/nfs/client.c:531
+#7  0xffffffff81ecae46 in nfs4_alloc_client (cl_init=0xffff88800fd3fbb0) at fs/nfs/nfs4client.c:240
+#8  0xffffffff81da4638 in nfs_get_client (cl_init=cl_init@entry=0xffff88800fd3fbb0)
+    at fs/nfs/client.c:432
+#9  0xffffffff81ec969b in nfs4_set_client (server=server@entry=0xffff88800eb6f000, 
+    hostname=0xffff888009316ea0 "192.168.122.210", addr=addr@entry=0xffff888010bfc130, addrlen=addrlen@entry=16, ip_addr=ip_addr@entry=0xffff888009316980 "192.168.122.211", proto=proto@entry=6, timeparms=<optimized out>, minorversion=<optimized out>, nconnect=<optimized out>, max_connect=<optimized out>, net=<optimized out>) at fs/nfs/nfs4client.c:930
+#10 0xffffffff81eca090 in nfs4_init_server (server=server@entry=0xffff88800eb6f000, fc=fc@entry=0xffff8880082b3800) at fs/nfs/nfs4client.c:1149
+#11 0xffffffff81ecca32 in nfs4_create_server (fc=fc@entry=0xffff8880082b3800) at fs/nfs/nfs4client.c:1198
+#12 0xffffffff81eaef5d in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#13 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#14 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#15 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#16 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#17 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#18 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#19 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#20 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#21 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#22 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#23 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#24 0x0000000000000010 in fixed_percpu_data ()
+#25 0x00007fff06645448 in ?? ()
+#26 0x0000559b489ae3e0 in ?? ()
+#27 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 7 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800d96dcc0) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800d96dcc0) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f970)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e4e682 in nfs4_run_exchange_id (clp=clp@entry=0xffff888010bfb000, 
+    cred=cred@entry=0xffffffff857ab940 <machine_cred>, sp4_how=sp4_how@entry=0, 
+    xprt=xprt@entry=0x0 <fixed_percpu_data>) at fs/nfs/nfs4proc.c:8771
+#3  0xffffffff81e51295 in _nfs4_proc_exchange_id (clp=clp@entry=0xffff888010bfb000, 
+    cred=cred@entry=0xffffffff857ab940 <machine_cred>, sp4_how=sp4_how@entry=0)
+    at fs/nfs/nfs4proc.c:8800
+#4  0xffffffff81e7834e in nfs4_proc_exchange_id (clp=clp@entry=0xffff888010bfb000, 
+    cred=cred@entry=0xffffffff857ab940 <machine_cred>) at fs/nfs/nfs4proc.c:8876
+#5  0xffffffff81eac25b in nfs41_discover_server_trunking (clp=0xffff888010bfb000, 
+    result=0xffff88800fd3faf8, cred=0xffffffff857ab940 <machine_cred>) at fs/nfs/nfs4state.c:358
+#6  0xffffffff81ead66e in nfs4_discover_server_trunking (clp=clp@entry=0xffff888010bfb000, 
+    result=result@entry=0xffff88800fd3faf8) at fs/nfs/nfs4state.c:2299
+#7  0xffffffff81ecb1b0 in nfs4_init_client (clp=0xffff888010bfb000, cl_init=<optimized out>)
+    at fs/nfs/nfs4client.c:454
+#8  0xffffffff81da487c in nfs_get_client (cl_init=cl_init@entry=0xffff88800fd3fbb0) at fs/nfs/client.c:427
+#9  0xffffffff81ec969b in nfs4_set_client (server=server@entry=0xffff88800eb6f000, hostname=0xffff888009316ea0 "192.168.122.210", addr=addr@entry=0xffff888010bfc130, addrlen=addrlen@entry=16, ip_addr=ip_addr@entry=0xffff888009316980 "192.168.122.211", proto=proto@entry=6, timeparms=<optimized out>, minorversion=<optimized out>, nconnect=<optimized out>, max_connect=<optimized out>, net=<optimized out>) at fs/nfs/nfs4client.c:930
+#10 0xffffffff81eca090 in nfs4_init_server (server=server@entry=0xffff88800eb6f000, fc=fc@entry=0xffff8880082b3800) at fs/nfs/nfs4client.c:1149
+#11 0xffffffff81ecca32 in nfs4_create_server (fc=fc@entry=0xffff8880082b3800) at fs/nfs/nfs4client.c:1198
+#12 0xffffffff81eaef5d in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#13 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#14 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#15 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#16 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#17 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#18 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#19 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#20 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#21 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#22 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#23 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#24 0x0000000000000010 in fixed_percpu_data ()
+#25 0x00007fff06645448 in ?? ()
+#26 0x0000559b489ae3e0 in ?? ()
+#27 0x0000000000000000 in ?? ()
+Continuing.
+[Switching to Thread 1.2]
+
+Thread 2 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff888008bb08c0) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff888008bb08c0) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800eab7cc0)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e4e682 in nfs4_run_exchange_id (clp=clp@entry=0xffff888010bfb000, 
+    cred=cred@entry=0xffffffff857ab940 <machine_cred>, sp4_how=sp4_how@entry=0, 
+    xprt=xprt@entry=0x0 <fixed_percpu_data>) at fs/nfs/nfs4proc.c:8771
+#3  0xffffffff81e51295 in _nfs4_proc_exchange_id (clp=clp@entry=0xffff888010bfb000, 
+    cred=cred@entry=0xffffffff857ab940 <machine_cred>, sp4_how=sp4_how@entry=0)
+    at fs/nfs/nfs4proc.c:8800
+#4  0xffffffff81e7834e in nfs4_proc_exchange_id (clp=clp@entry=0xffff888010bfb000, 
+    cred=cred@entry=0xffffffff857ab940 <machine_cred>) at fs/nfs/nfs4proc.c:8876
+#5  0xffffffff81ea64e7 in nfs41_init_clientid (clp=0xffff888010bfb000, 
+    cred=0xffffffff857ab940 <machine_cred>) at fs/nfs/nfs4state.c:325
+#6  0xffffffff81ea660e in nfs4_establish_lease (clp=clp@entry=0xffff888010bfb000)
+    at fs/nfs/nfs4state.c:2051
+#7  0xffffffff81ea6705 in nfs4_reclaim_lease (clp=clp@entry=0xffff888010bfb000)
+    at fs/nfs/nfs4state.c:2067
+#8  0xffffffff81ea980f in nfs4_state_manager (clp=clp@entry=0xffff888010bfb000) at fs/nfs/nfs4state.c:2616
+#9  0xffffffff81eaa388 in nfs4_run_state_manager (ptr=0xffff888010bfb000) at fs/nfs/nfs4state.c:2738
+#10 0xffffffff8123d678 in kthread (_create=<optimized out>) at kernel/kthread.c:376
+#11 0xffffffff81006682 in ret_from_fork () at arch/x86/entry/entry_64.S:302
+#12 0x0000000000000000 in ?? ()
+Continuing.
+[Switching to Thread 1.11]
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949a640) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949a640) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800eab7b58)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff83bf2109 in rpc_call_sync (clnt=0xffff88800842b400, 
+    msg=msg@entry=0xffff88800eab7c20, flags=flags@entry=4352) at net/sunrpc/clnt.c:1182
+#3  0xffffffff81e506bd in _nfs4_proc_create_session (clp=clp@entry=0xffff888010bfb000, 
+    cred=cred@entry=0xffffffff857ab940 <machine_cred>) at fs/nfs/nfs4proc.c:9208
+#4  0xffffffff81e78818 in nfs4_proc_create_session (clp=clp@entry=0xffff888010bfb000, 
+    cred=cred@entry=0xffffffff857ab940 <machine_cred>) at fs/nfs/nfs4proc.c:9247
+#5  0xffffffff81ea64b3 in nfs41_init_clientid (clp=0xffff888010bfb000, 
+    cred=0xffffffff857ab940 <machine_cred>) at fs/nfs/nfs4state.c:330
+#6  0xffffffff81ea660e in nfs4_establish_lease (clp=clp@entry=0xffff888010bfb000)
+    at fs/nfs/nfs4state.c:2051
+#7  0xffffffff81ea6705 in nfs4_reclaim_lease (clp=clp@entry=0xffff888010bfb000)
+    at fs/nfs/nfs4state.c:2067
+#8  0xffffffff81ea980f in nfs4_state_manager (clp=clp@entry=0xffff888010bfb000)
+    at fs/nfs/nfs4state.c:2616
+#9  0xffffffff81eaa388 in nfs4_run_state_manager (ptr=0xffff888010bfb000) at fs/nfs/nfs4state.c:2738
+#10 0xffffffff8123d678 in kthread (_create=<optimized out>) at kernel/kthread.c:376
+#11 0xffffffff81006682 in ret_from_fork () at arch/x86/entry/entry_64.S:302
+#12 0x0000000000000000 in ?? ()
+Continuing.
+[Switching to Thread 1.6]
+
+Thread 6 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff888011e68280) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff888011e68280) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800eab7d50)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800eab7d50)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e60c68 in nfs41_proc_reclaim_complete (clp=clp@entry=0xffff888010bfb000, 
+    cred=cred@entry=0xffffffff857ab940 <machine_cred>) at fs/nfs/nfs4proc.c:9542
+#4  0xffffffff81ea1023 in nfs4_reclaim_complete (clp=clp@entry=0xffff888010bfb000, 
+    ops=ops@entry=0xffffffff843d0900 <nfs41_reboot_recovery_ops>, 
+    cred=cred@entry=0xffffffff857ab940 <machine_cred>) at fs/nfs/nfs4state.c:1801
+#5  0xffffffff81ea6897 in nfs4_state_end_reclaim_reboot (clp=clp@entry=0xffff888010bfb000)
+    at fs/nfs/nfs4state.c:1855
+#6  0xffffffff81ea9a5f in nfs4_state_manager (clp=clp@entry=0xffff888010bfb000)
+    at fs/nfs/nfs4state.c:2673
+#7  0xffffffff81eaa388 in nfs4_run_state_manager (ptr=0xffff888010bfb000)
+    at fs/nfs/nfs4state.c:2738
+#8  0xffffffff8123d678 in kthread (_create=<optimized out>) at kernel/kthread.c:376
+#9  0xffffffff81006682 in ret_from_fork () at arch/x86/entry/entry_64.S:302
+#10 0x0000000000000000 in ?? ()
+Continuing.
+[Switching to Thread 1.7]
+
+Thread 7 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800d96c280) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800d96c280) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3fa60)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3fa60)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e6288b in _nfs41_proc_secinfo_no_name (server=server@entry=0xffff88800eb6f000, 
+    fhandle=fhandle@entry=0xffff88800f4ca100, info=info@entry=0xffff88800fd3fc60, 
+    flavors=flavors@entry=0xffff888018796000, use_integrity=use_integrity@entry=false)
+    at fs/nfs/nfs4proc.c:10050
+#4  0xffffffff81e62ada in nfs41_proc_secinfo_no_name (server=server@entry=0xffff88800eb6f000, 
+    fhandle=fhandle@entry=0xffff88800f4ca100, info=info@entry=0xffff88800fd3fc60, 
+    flavors=flavors@entry=0xffff888018796000) at fs/nfs/nfs4proc.c:10082
+#5  0xffffffff81e65115 in nfs41_find_root_sec (server=0xffff88800eb6f000, 
+    fhandle=0xffff88800f4ca100, info=0xffff88800fd3fc60) at fs/nfs/nfs4proc.c:10116
+#6  0xffffffff81e73042 in nfs4_proc_get_rootfh (server=server@entry=0xffff88800eb6f000, 
+    fhandle=fhandle@entry=0xffff88800f4ca100, info=info@entry=0xffff88800fd3fc60, 
+    auth_probe=auth_probe@entry=true) at fs/nfs/nfs4proc.c:4193
+#7  0xffffffff81ec6ab5 in nfs4_get_rootfh (server=server@entry=0xffff88800eb6f000, mntfh=mntfh@entry=0xffff88800f4ca100, auth_probe=auth_probe@entry=true) at fs/nfs/nfs4getroot.c:23
+#8  0xffffffff81ecc662 in nfs4_server_common_setup (server=server@entry=0xffff88800eb6f000, mntfh=0xffff88800f4ca100, auth_probe=auth_probe@entry=true) at fs/nfs/nfs4client.c:1097
+#9  0xffffffff81ecca71 in nfs4_create_server (fc=fc@entry=0xffff8880082b3800) at fs/nfs/nfs4client.c:1202
+#10 0xffffffff81eaef5d in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#11 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#12 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#13 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#14 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#15 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#16 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#17 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#18 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#19 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#20 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#21 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#22 0x0000000000000010 in fixed_percpu_data ()
+#23 0x00007fff06645448 in ?? ()
+#24 0x0000559b489ae3e0 in ?? ()
+#25 0x0000000000000000 in ?? ()
+Continuing.
+[Switching to Thread 1.11]
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949a000) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949a000) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f818)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f818)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3f9b0, 
+    args=args@entry=0xffff88800fd3f970, res=res@entry=0xffff88800fd3f9f0, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e45dfe in nfs4_call_sync_sequence (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3f9b0, 
+    args=args@entry=0xffff88800fd3f970, res=res@entry=0xffff88800fd3f9f0) at fs/nfs/nfs4proc.c:1167
+#5  0xffffffff81e63e1d in nfs4_call_sync (clnt=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3f9b0, 
+    args=args@entry=0xffff88800fd3f970, res=res@entry=0xffff88800fd3f9f0, 
+    cache_reply=cache_reply@entry=0) at fs/nfs/nfs4proc.c:1179
+#6  0xffffffff81e64b22 in _nfs4_lookup_root (server=server@entry=0xffff88800eb6f000, 
+    fhandle=fhandle@entry=0xffff88800f4ca100, info=info@entry=0xffff88800fd3fc60) at fs/nfs/nfs4proc.c:4080
+#7  0xffffffff81e64d4a in nfs4_lookup_root (server=server@entry=0xffff88800eb6f000, fhandle=fhandle@entry=0xffff88800f4ca100, info=info@entry=0xffff88800fd3fc60) at fs/nfs/nfs4proc.c:4091
+#8  0xffffffff81e64e81 in nfs4_lookup_root_sec (server=server@entry=0xffff88800eb6f000, fhandle=fhandle@entry=0xffff88800f4ca100, info=info@entry=0xffff88800fd3fc60, flavor=flavor@entry=1) at fs/nfs/nfs4proc.c:4116
+#9  0xffffffff81e652a9 in nfs41_find_root_sec (server=0xffff88800eb6f000, fhandle=0xffff88800f4ca100, info=0xffff88800fd3fc60) at fs/nfs/nfs4proc.c:10148
+#10 0xffffffff81e73042 in nfs4_proc_get_rootfh (server=server@entry=0xffff88800eb6f000, fhandle=fhandle@entry=0xffff88800f4ca100, info=info@entry=0xffff88800fd3fc60, auth_probe=auth_probe@entry=true) at fs/nfs/nfs4proc.c:4193
+#11 0xffffffff81ec6ab5 in nfs4_get_rootfh (server=server@entry=0xffff88800eb6f000, mntfh=mntfh@entry=0xffff88800f4ca100, auth_probe=auth_probe@entry=true) at fs/nfs/nfs4getroot.c:23
+#12 0xffffffff81ecc662 in nfs4_server_common_setup (server=server@entry=0xffff88800eb6f000, mntfh=0xffff88800f4ca100, auth_probe=auth_probe@entry=true) at fs/nfs/nfs4client.c:1097
+#13 0xffffffff81ecca71 in nfs4_create_server (fc=fc@entry=0xffff8880082b3800) at fs/nfs/nfs4client.c:1202
+#14 0xffffffff81eaef5d in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#15 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#16 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#17 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#18 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#19 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#20 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#21 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#22 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#23 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#24 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#25 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#26 0x0000000000000010 in fixed_percpu_data ()
+#27 0x00007fff06645448 in ?? ()
+#28 0x0000559b489ae3e0 in ?? ()
+#29 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949b040) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949b040) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f8c8)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f8c8)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3fa70, 
+    args=args@entry=0xffff88800fd3fa30, res=res@entry=0xffff88800fd3fab0, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e45dfe in nfs4_call_sync_sequence (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3fa70, 
+    args=args@entry=0xffff88800fd3fa30, res=res@entry=0xffff88800fd3fab0) at fs/nfs/nfs4proc.c:1167
+#5  0xffffffff81e63e1d in nfs4_call_sync (clnt=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3fa70, 
+    args=args@entry=0xffff88800fd3fa30, res=res@entry=0xffff88800fd3fab0, 
+    cache_reply=cache_reply@entry=0) at fs/nfs/nfs4proc.c:1179
+#6  0xffffffff81e64032 in _nfs4_server_capabilities (server=server@entry=0xffff88800eb6f000, 
+    fhandle=fhandle@entry=0xffff88800f4ca100) at fs/nfs/nfs4proc.c:3853
+#7  0xffffffff81e646a0 in nfs4_server_capabilities (server=server@entry=0xffff88800eb6f000, fhandle=fhandle@entry=0xffff88800f4ca100) at fs/nfs/nfs4proc.c:3939
+#8  0xffffffff81e730bb in nfs4_proc_get_rootfh (server=server@entry=0xffff88800eb6f000, fhandle=fhandle@entry=0xffff88800f4ca100, info=info@entry=0xffff88800fd3fc60, auth_probe=auth_probe@entry=true) at fs/nfs/nfs4proc.c:4197
+#9  0xffffffff81ec6ab5 in nfs4_get_rootfh (server=server@entry=0xffff88800eb6f000, mntfh=mntfh@entry=0xffff88800f4ca100, auth_probe=auth_probe@entry=true) at fs/nfs/nfs4getroot.c:23
+#10 0xffffffff81ecc662 in nfs4_server_common_setup (server=server@entry=0xffff88800eb6f000, mntfh=0xffff88800f4ca100, auth_probe=auth_probe@entry=true) at fs/nfs/nfs4client.c:1097
+#11 0xffffffff81ecca71 in nfs4_create_server (fc=fc@entry=0xffff8880082b3800) at fs/nfs/nfs4client.c:1202
+#12 0xffffffff81eaef5d in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#13 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#14 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#15 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#16 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#17 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#18 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#19 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#20 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#21 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#22 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#23 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#24 0x0000000000000010 in fixed_percpu_data ()
+#25 0x00007fff06645448 in ?? ()
+#26 0x0000559b489ae3e0 in ?? ()
+#27 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949b180) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949b180) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f8f8)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f8f8)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3fa80, 
+    args=args@entry=0xffff88800fd3fa40, res=res@entry=0xffff88800fd3fac0, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e45dfe in nfs4_call_sync_sequence (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3fa80, 
+    args=args@entry=0xffff88800fd3fa40, res=res@entry=0xffff88800fd3fac0) at fs/nfs/nfs4proc.c:1167
+#5  0xffffffff81e63e1d in nfs4_call_sync (clnt=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3fa80, 
+    args=args@entry=0xffff88800fd3fa40, res=res@entry=0xffff88800fd3fac0, 
+    cache_reply=cache_reply@entry=0) at fs/nfs/nfs4proc.c:1179
+#6  0xffffffff81e654b0 in _nfs4_do_fsinfo (server=server@entry=0xffff88800eb6f000, 
+    fhandle=fhandle@entry=0xffff88800f4ca100, fsinfo=fsinfo@entry=0xffff88800fd3fc60) at fs/nfs/nfs4proc.c:5258
+#7  0xffffffff81e656be in nfs4_do_fsinfo (server=server@entry=0xffff88800eb6f000, fhandle=fhandle@entry=0xffff88800f4ca100, fsinfo=fsinfo@entry=0xffff88800fd3fc60) at fs/nfs/nfs4proc.c:5269
+#8  0xffffffff81e730d2 in nfs4_proc_get_rootfh (server=server@entry=0xffff88800eb6f000, fhandle=fhandle@entry=0xffff88800f4ca100, info=info@entry=0xffff88800fd3fc60, auth_probe=auth_probe@entry=true) at fs/nfs/nfs4proc.c:4199
+#9  0xffffffff81ec6ab5 in nfs4_get_rootfh (server=server@entry=0xffff88800eb6f000, mntfh=mntfh@entry=0xffff88800f4ca100, auth_probe=auth_probe@entry=true) at fs/nfs/nfs4getroot.c:23
+#10 0xffffffff81ecc662 in nfs4_server_common_setup (server=server@entry=0xffff88800eb6f000, mntfh=0xffff88800f4ca100, auth_probe=auth_probe@entry=true) at fs/nfs/nfs4client.c:1097
+#11 0xffffffff81ecca71 in nfs4_create_server (fc=fc@entry=0xffff8880082b3800) at fs/nfs/nfs4client.c:1202
+#12 0xffffffff81eaef5d in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#13 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#14 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#15 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#16 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#17 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#18 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#19 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#20 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#21 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#22 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#23 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#24 0x0000000000000010 in fixed_percpu_data ()
+#25 0x00007fff06645448 in ?? ()
+#26 0x0000559b489ae3e0 in ?? ()
+#27 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949ac80) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949ac80) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f8b8)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f8b8)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3fa60, 
+    args=args@entry=0xffff88800fd3fa20, res=res@entry=0xffff88800fd3faa0, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e45dfe in nfs4_call_sync_sequence (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3fa60, 
+    args=args@entry=0xffff88800fd3fa20, res=res@entry=0xffff88800fd3faa0) at fs/nfs/nfs4proc.c:1167
+#5  0xffffffff81e63e1d in nfs4_call_sync (clnt=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3fa60, 
+    args=args@entry=0xffff88800fd3fa20, res=res@entry=0xffff88800fd3faa0, 
+    cache_reply=cache_reply@entry=0) at fs/nfs/nfs4proc.c:1179
+#6  0xffffffff81e64032 in _nfs4_server_capabilities (server=server@entry=0xffff88800eb6f000, 
+    fhandle=fhandle@entry=0xffff88800f4ca100) at fs/nfs/nfs4proc.c:3853
+#7  0xffffffff81e646a0 in nfs4_server_capabilities (server=server@entry=0xffff88800eb6f000, fhandle=fhandle@entry=0xffff88800f4ca100) at fs/nfs/nfs4proc.c:3939
+#8  0xffffffff81da31c9 in nfs_probe_fsinfo (server=server@entry=0xffff88800eb6f000, mntfh=mntfh@entry=0xffff88800f4ca100, fattr=fattr@entry=0xffff88800e32cc00) at fs/nfs/client.c:834
+#9  0xffffffff81da357c in nfs_probe_server (server=server@entry=0xffff88800eb6f000, mntfh=mntfh@entry=0xffff88800f4ca100) at fs/nfs/client.c:887
+#10 0xffffffff81ecc6fc in nfs4_server_common_setup (server=server@entry=0xffff88800eb6f000, mntfh=0xffff88800f4ca100, auth_probe=auth_probe@entry=true) at fs/nfs/nfs4client.c:1106
+#11 0xffffffff81ecca71 in nfs4_create_server (fc=fc@entry=0xffff8880082b3800) at fs/nfs/nfs4client.c:1202
+#12 0xffffffff81eaef5d in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#13 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#14 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#15 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#16 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#17 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#18 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#19 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#20 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#21 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#22 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#23 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#24 0x0000000000000010 in fixed_percpu_data ()
+#25 0x00007fff06645448 in ?? ()
+#26 0x0000559b489ae3e0 in ?? ()
+#27 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949b400) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949b400) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f8a8)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f8a8)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3fa30, 
+    args=args@entry=0xffff88800fd3f9f0, res=res@entry=0xffff88800fd3fa70, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e45dfe in nfs4_call_sync_sequence (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3fa30, 
+    args=args@entry=0xffff88800fd3f9f0, res=res@entry=0xffff88800fd3fa70) at fs/nfs/nfs4proc.c:1167
+#5  0xffffffff81e63e1d in nfs4_call_sync (clnt=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3fa30, 
+    args=args@entry=0xffff88800fd3f9f0, res=res@entry=0xffff88800fd3fa70, 
+    cache_reply=cache_reply@entry=0) at fs/nfs/nfs4proc.c:1179
+#6  0xffffffff81e654b0 in _nfs4_do_fsinfo (server=server@entry=0xffff88800eb6f000, 
+    fhandle=fhandle@entry=0xffff88800f4ca100, fsinfo=fsinfo@entry=0xffff88800fd3fc30) at fs/nfs/nfs4proc.c:5258
+#7  0xffffffff81e656be in nfs4_do_fsinfo (server=server@entry=0xffff88800eb6f000, fhandle=fhandle@entry=0xffff88800f4ca100, fsinfo=fsinfo@entry=0xffff88800fd3fc30) at fs/nfs/nfs4proc.c:5269
+#8  0xffffffff81e657ed in nfs4_proc_fsinfo (server=0xffff88800eb6f000, fhandle=0xffff88800f4ca100, fsinfo=0xffff88800fd3fc30) at fs/nfs/nfs4proc.c:5285
+#9  0xffffffff81da3261 in nfs_probe_fsinfo (server=server@entry=0xffff88800eb6f000, mntfh=mntfh@entry=0xffff88800f4ca100, fattr=fattr@entry=0xffff88800e32cc00) at fs/nfs/client.c:842
+#10 0xffffffff81da357c in nfs_probe_server (server=server@entry=0xffff88800eb6f000, mntfh=mntfh@entry=0xffff88800f4ca100) at fs/nfs/client.c:887
+#11 0xffffffff81ecc6fc in nfs4_server_common_setup (server=server@entry=0xffff88800eb6f000, mntfh=0xffff88800f4ca100, auth_probe=auth_probe@entry=true) at fs/nfs/nfs4client.c:1106
+#12 0xffffffff81ecca71 in nfs4_create_server (fc=fc@entry=0xffff8880082b3800) at fs/nfs/nfs4client.c:1202
+#13 0xffffffff81eaef5d in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#14 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#15 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#16 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#17 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#18 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#19 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#20 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#21 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#22 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#23 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#24 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#25 0x0000000000000010 in fixed_percpu_data ()
+#26 0x00007fff06645448 in ?? ()
+#27 0x0000559b489ae3e0 in ?? ()
+#28 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949a500) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949a500) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f8e8)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f8e8)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3fa70, 
+    args=args@entry=0xffff88800fd3fa30, res=res@entry=0xffff88800fd3fab0, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e45dfe in nfs4_call_sync_sequence (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3fa70, 
+    args=args@entry=0xffff88800fd3fa30, res=res@entry=0xffff88800fd3fab0) at fs/nfs/nfs4proc.c:1167
+#5  0xffffffff81e63e1d in nfs4_call_sync (clnt=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3fa70, 
+    args=args@entry=0xffff88800fd3fa30, res=res@entry=0xffff88800fd3fab0, 
+    cache_reply=cache_reply@entry=0) at fs/nfs/nfs4proc.c:1179
+#6  0xffffffff81e67efc in _nfs4_proc_pathconf (server=server@entry=0xffff88800eb6f000, 
+    fhandle=fhandle@entry=0xffff88800f4ca100, pathconf=pathconf@entry=0xffff88800fd3fc10) at fs/nfs/nfs4proc.c:5318
+#7  0xffffffff81e67fc2 in nfs4_proc_pathconf (server=0xffff88800eb6f000, fhandle=0xffff88800f4ca100, pathconf=0xffff88800fd3fc10) at fs/nfs/nfs4proc.c:5330
+#8  0xffffffff81da3468 in nfs_probe_fsinfo (server=server@entry=0xffff88800eb6f000, mntfh=mntfh@entry=0xffff88800f4ca100, fattr=fattr@entry=0xffff88800e32cc00) at fs/nfs/client.c:855
+#9  0xffffffff81da357c in nfs_probe_server (server=server@entry=0xffff88800eb6f000, mntfh=mntfh@entry=0xffff88800f4ca100) at fs/nfs/client.c:887
+#10 0xffffffff81ecc6fc in nfs4_server_common_setup (server=server@entry=0xffff88800eb6f000, mntfh=0xffff88800f4ca100, auth_probe=auth_probe@entry=true) at fs/nfs/nfs4client.c:1106
+#11 0xffffffff81ecca71 in nfs4_create_server (fc=fc@entry=0xffff8880082b3800) at fs/nfs/nfs4client.c:1202
+#12 0xffffffff81eaef5d in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#13 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#14 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#15 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#16 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#17 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#18 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#19 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#20 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#21 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#22 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#23 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#24 0x0000000000000010 in fixed_percpu_data ()
+#25 0x00007fff06645448 in ?? ()
+#26 0x0000559b489ae3e0 in ?? ()
+#27 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949a140) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949a140) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f788)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f788)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3f930, 
+    args=args@entry=0xffff88800fd3f8f0, res=res@entry=0xffff88800fd3f970, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e45dfe in nfs4_call_sync_sequence (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3f930, 
+    args=args@entry=0xffff88800fd3f8f0, res=res@entry=0xffff88800fd3f970) at fs/nfs/nfs4proc.c:1167
+#5  0xffffffff81e63e1d in nfs4_call_sync (clnt=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3f930, 
+    args=args@entry=0xffff88800fd3f8f0, res=res@entry=0xffff88800fd3f970, 
+    cache_reply=cache_reply@entry=0) at fs/nfs/nfs4proc.c:1179
+#6  0xffffffff81e64032 in _nfs4_server_capabilities (server=server@entry=0xffff88800eb6f000, 
+    fhandle=fhandle@entry=0xffff888010897600) at fs/nfs/nfs4proc.c:3853
+#7  0xffffffff81e646a0 in nfs4_server_capabilities (server=server@entry=0xffff88800eb6f000, fhandle=fhandle@entry=0xffff888010897600) at fs/nfs/nfs4proc.c:3939
+#8  0xffffffff81e64732 in nfs4_proc_get_root (server=0xffff88800eb6f000, mntfh=0xffff888010897600, info=0xffff88800fd3fb50) at fs/nfs/nfs4proc.c:4210
+#9  0xffffffff81dc0577 in nfs_get_root (s=s@entry=0xffff8880134ca000, fc=fc@entry=0xffff888010897400) at fs/nfs/getroot.c:87
+#10 0xffffffff81dd4fe3 in nfs_get_tree_common (fc=fc@entry=0xffff888010897400) at fs/nfs/super.c:1307
+#11 0xffffffff81e23430 in nfs_get_tree (fc=0xffff888010897400) at fs/nfs/fs_context.c:1432
+#12 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff888010897400) at fs/super.c:1497
+#13 0xffffffff819e4721 in fc_mount (fc=fc@entry=0xffff888010897400) at fs/namespace.c:1043
+#14 0xffffffff81eaed05 in do_nfs4_mount (server=<optimized out>, fc=fc@entry=0xffff8880082b3800, hostname=hostname@entry=0xffff888009316ea0 "192.168.122.210", export_path=export_path@entry=0xffff888009316f00 "/mufiye_test") at fs/nfs/nfs4super.c:194
+#15 0xffffffff81eaef6e in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#16 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#17 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#18 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#19 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#20 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#21 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#22 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#23 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#24 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#25 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#26 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#27 0x0000000000000010 in fixed_percpu_data ()
+#28 0x00007fff06645448 in ?? ()
+#29 0x0000559b489ae3e0 in ?? ()
+#30 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949b2c0) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949b2c0) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f7f8)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f7f8)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3f940, 
+    args=args@entry=0xffff88800fd3f900, res=res@entry=0xffff88800fd3f980, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e5ce15 in _nfs4_proc_getattr (server=server@entry=0xffff88800eb6f000, 
+    fhandle=fhandle@entry=0xffff888010897600, fattr=fattr@entry=0xffff88800e32fe00, 
+    inode=inode@entry=0x0 <fixed_percpu_data>) at fs/nfs/nfs4proc.c:4306
+#5  0xffffffff81e5d063 in nfs4_proc_getattr (server=server@entry=0xffff88800eb6f000, 
+    fhandle=fhandle@entry=0xffff888010897600, fattr=fattr@entry=0xffff88800e32fe00, 
+    inode=inode@entry=0x0 <fixed_percpu_data>) at fs/nfs/nfs4proc.c:4318
+#6  0xffffffff81e64754 in nfs4_proc_get_root (server=0xffff88800eb6f000, mntfh=0xffff888010897600, 
+    info=<optimized out>) at fs/nfs/nfs4proc.c:4216
+#7  0xffffffff81dc0577 in nfs_get_root (s=s@entry=0xffff8880134ca000, fc=fc@entry=0xffff888010897400) at fs/nfs/getroot.c:87
+#8  0xffffffff81dd4fe3 in nfs_get_tree_common (fc=fc@entry=0xffff888010897400) at fs/nfs/super.c:1307
+#9  0xffffffff81e23430 in nfs_get_tree (fc=0xffff888010897400) at fs/nfs/fs_context.c:1432
+#10 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff888010897400) at fs/super.c:1497
+#11 0xffffffff819e4721 in fc_mount (fc=fc@entry=0xffff888010897400) at fs/namespace.c:1043
+#12 0xffffffff81eaed05 in do_nfs4_mount (server=<optimized out>, fc=fc@entry=0xffff8880082b3800, hostname=hostname@entry=0xffff888009316ea0 "192.168.122.210", export_path=export_path@entry=0xffff888009316f00 "/mufiye_test") at fs/nfs/nfs4super.c:194
+#13 0xffffffff81eaef6e in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#14 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#15 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#16 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#17 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#18 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#19 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#20 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#21 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#22 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#23 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#24 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#25 0x0000000000000010 in fixed_percpu_data ()
+#26 0x00007fff06645448 in ?? ()
+#27 0x0000559b489ae3e0 in ?? ()
+#28 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949bb80) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949bb80) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f4d8)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f4d8)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3f620, 
+    args=args@entry=0xffff88800fd3f660, res=res@entry=0xffff88800fd3f6b0, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e45dfe in nfs4_call_sync_sequence (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3f620, 
+    args=args@entry=0xffff88800fd3f660, res=res@entry=0xffff88800fd3f6b0) at fs/nfs/nfs4proc.c:1167
+#5  0xffffffff81e63e1d in nfs4_call_sync (clnt=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3f620, 
+    args=args@entry=0xffff88800fd3f660, res=res@entry=0xffff88800fd3f6b0, 
+    cache_reply=cache_reply@entry=0) at fs/nfs/nfs4proc.c:1179
+#6  0xffffffff81e6b06c in _nfs4_proc_access (inode=inode@entry=0xffff8880180166b0, 
+    entry=entry@entry=0xffff88800fd3f838, cred=cred@entry=0xffff88800890b000) at fs/nfs/nfs4proc.c:4587
+#7  0xffffffff81e6b3a7 in nfs4_proc_access (inode=0xffff8880180166b0, entry=0xffff88800fd3f838, cred=0xffff88800890b000) at fs/nfs/nfs4proc.c:4605
+#8  0xffffffff81db18f3 in nfs_do_access (inode=inode@entry=0xffff8880180166b0, cred=cred@entry=0xffff88800890b000, mask=mask@entry=1) at fs/nfs/dir.c:3129
+#9  0xffffffff81db1de7 in nfs_permission (mnt_userns=mnt_userns@entry=0xffffffff84ecd3a0 <init_user_ns>, inode=inode@entry=0xffff8880180166b0, mask=mask@entry=1) at fs/nfs/dir.c:3225
+#10 0xffffffff8199eb81 in do_inode_permission (mask=1, inode=0xffff8880180166b0, mnt_userns=0xffffffff84ecd3a0 <init_user_ns>) at fs/namei.c:458
+#11 inode_permission (mnt_userns=mnt_userns@entry=0xffffffff84ecd3a0 <init_user_ns>, inode=0xffff8880180166b0, mask=mask@entry=1) at fs/namei.c:525
+#12 0xffffffff819a7a0f in may_lookup (nd=0xffff88800fd3fa60, mnt_userns=0xffffffff84ecd3a0 <init_user_ns>) at fs/namei.c:1731
+#13 link_path_walk (name=0xffff88800ed1c421 "mufiye_test", name@entry=0xffff88800ed1c420 "/mufiye_test", nd=nd@entry=0xffff88800fd3fa60) at fs/namei.c:2283
+#14 0xffffffff819a8b97 in path_lookupat (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=69, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2492
+#15 0xffffffff819abc58 in filename_lookup (dfd=dfd@entry=-100, name=name@entry=0xffff88800ed1c400, flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60, root=root@entry=0xffff88800fd3fbe0) at fs/namei.c:2522
+#16 0xffffffff819abf3c in vfs_path_lookup (dentry=0xffff88801393ef00, mnt=mnt@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test", flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2638
+#17 0xffffffff819f2129 in mount_subtree (m=m@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test") at fs/namespace.c:3549
+#18 0xffffffff81eaed42 in do_nfs4_mount (server=<optimized out>, fc=fc@entry=0xffff8880082b3800, hostname=hostname@entry=0xffff888009316ea0 "192.168.122.210", export_path=export_path@entry=0xffff888009316f00 "/mufiye_test") at fs/nfs/nfs4super.c:206
+#19 0xffffffff81eaef6e in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#20 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#21 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#22 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#23 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#24 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#25 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#26 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#27 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#28 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#29 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#30 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#31 0x0000000000000010 in fixed_percpu_data ()
+#32 0x00007fff06645448 in ?? ()
+#33 0x0000559b489ae3e0 in ?? ()
+#34 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949b7c0) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949b7c0) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f4d8)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f4d8)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3f5d0, 
+    args=args@entry=0xffff88800fd3f610, res=res@entry=0xffff88800fd3f660, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e5d582 in _nfs4_proc_lookup (clnt=clnt@entry=0xffff88800842bc00, 
+    dir=dir@entry=0xffff8880180166b0, dentry=dentry@entry=0xffff88800d65db00, 
+    fhandle=fhandle@entry=0xffff888010896f00, fattr=fattr@entry=0xffff88800e32e400)
+    at fs/nfs/nfs4proc.c:4423
+#5  0xffffffff81e76d53 in nfs4_proc_lookup_common (clnt=clnt@entry=0xffff88800fd3f7f8, 
+    dir=dir@entry=0xffff8880180166b0, dentry=dentry@entry=0xffff88800d65db00, 
+    fhandle=fhandle@entry=0xffff888010896f00, fattr=fattr@entry=0xffff88800e32e400)
+    at fs/nfs/nfs4proc.c:4448
+#6  0xffffffff81e773a2 in nfs4_proc_lookup (dir=0xffff8880180166b0, dentry=0xffff88800d65db00, fhandle=0xffff888010896f00, fattr=0xffff88800e32e400) at fs/nfs/nfs4proc.c:4489
+#7  0xffffffff81db85ce in nfs_lookup (dir=0xffff8880180166b0, dentry=0xffff88800d65db00, flags=5) at fs/nfs/dir.c:1941
+#8  0xffffffff8199d9b2 in __lookup_slow (name=name@entry=0xffff88800fd3fa70, dir=dir@entry=0xffff88801393ef00, flags=flags@entry=5) at fs/namei.c:1701
+#9  0xffffffff8199dbcd in lookup_slow (name=name@entry=0xffff88800fd3fa70, dir=0xffff88801393ef00, flags=flags@entry=5) at fs/namei.c:1718
+#10 0xffffffff819a724e in walk_component (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=1) at fs/namei.c:2014
+#11 0xffffffff819a8b7b in lookup_last (nd=0xffff88800fd3fa60) at fs/namei.c:2469
+#12 path_lookupat (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=69, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2493
+#13 0xffffffff819abc58 in filename_lookup (dfd=dfd@entry=-100, name=name@entry=0xffff88800ed1c400, flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60, root=root@entry=0xffff88800fd3fbe0) at fs/namei.c:2522
+#14 0xffffffff819abf3c in vfs_path_lookup (dentry=0xffff88801393ef00, mnt=mnt@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test", flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2638
+#15 0xffffffff819f2129 in mount_subtree (m=m@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test") at fs/namespace.c:3549
+#16 0xffffffff81eaed42 in do_nfs4_mount (server=<optimized out>, fc=fc@entry=0xffff8880082b3800, hostname=hostname@entry=0xffff888009316ea0 "192.168.122.210", export_path=export_path@entry=0xffff888009316f00 "/mufiye_test") at fs/nfs/nfs4super.c:206
+#17 0xffffffff81eaef6e in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#18 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#19 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#20 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#21 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#22 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#23 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#24 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#25 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#26 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#27 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#28 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#29 0x0000000000000010 in fixed_percpu_data ()
+#30 0x00007fff06645448 in ?? ()
+#31 0x0000559b489ae3e0 in ?? ()
+#32 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949b540) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949b540) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f428)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f428)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88800842bc00, 
+    server=server@entry=0xffff88800eb6f000, msg=msg@entry=0xffff88800fd3f520, 
+    args=args@entry=0xffff88800fd3f560, res=res@entry=0xffff88800fd3f5b0, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e5d582 in _nfs4_proc_lookup (clnt=clnt@entry=0xffff88800842bc00, 
+    dir=dir@entry=0xffff8880180166b0, dentry=dentry@entry=0xffff88800d65db00, 
+    fhandle=fhandle@entry=0xffff888010897100, fattr=fattr@entry=0xffff88800e32d000)
+    at fs/nfs/nfs4proc.c:4423
+#5  0xffffffff81e76d53 in nfs4_proc_lookup_common (clnt=clnt@entry=0xffff88800fd3f750, 
+    dir=dir@entry=0xffff8880180166b0, dentry=dentry@entry=0xffff88800d65db00, 
+    fhandle=fhandle@entry=0xffff888010897100, fattr=fattr@entry=0xffff88800e32d000)
+    at fs/nfs/nfs4proc.c:4448
+#6  0xffffffff81e771b0 in nfs4_proc_lookup_mountpoint (dir=dir@entry=0xffff8880180166b0, dentry=dentry@entry=0xffff88800d65db00, fhandle=0xffff888010897100, fattr=fattr@entry=0xffff88800e32d000) at fs/nfs/nfs4proc.c:4504
+#7  0xffffffff81ec65f5 in nfs4_submount (fc=0xffff88800ebfad00, server=<optimized out>) at fs/nfs/nfs4namespace.c:460
+#8  0xffffffff81dfb78a in nfs_d_automount (path=<optimized out>) at fs/nfs/namespace.c:187
+#9  0xffffffff8199801c in follow_automount (path=path@entry=0xffff88800fd3f908, count=count@entry=0xffff88800fd3fab4, lookup_flags=lookup_flags@entry=5) at fs/namei.c:1355
+#10 0xffffffff81998146 in __traverse_mounts (path=path@entry=0xffff88800fd3f908, flags=flags@entry=3278860, jumped=jumped@entry=0xffff88800fd3f8c8, count=count@entry=0xffff88800fd3fab4, lookup_flags=lookup_flags@entry=5) at fs/namei.c:1400
+#11 0xffffffff819a687f in traverse_mounts (lookup_flags=5, count=0xffff88800fd3fab4, jumped=0xffff88800fd3f8c8, path=0xffff88800fd3f908) at fs/namei.c:1429
+#12 handle_mounts (seqp=0xffff88800fd3f8d8, inode=0xffff88800fd3f8e8, path=0xffff88800fd3f908, dentry=0xffff88800fd3fa60, nd=0xffff88800fd3fa60) at fs/namei.c:1538
+#13 step_into (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=1, dentry=dentry@entry=0xffff88800d65db00, inode=<optimized out>, seq=<optimized out>) at fs/namei.c:1844
+#14 0xffffffff819a7033 in walk_component (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=1) at fs/namei.c:2020
+#15 0xffffffff819a8b7b in lookup_last (nd=0xffff88800fd3fa60) at fs/namei.c:2469
+#16 path_lookupat (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=69, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2493
+#17 0xffffffff819abc58 in filename_lookup (dfd=dfd@entry=-100, name=name@entry=0xffff88800ed1c400, flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60, root=root@entry=0xffff88800fd3fbe0) at fs/namei.c:2522
+#18 0xffffffff819abf3c in vfs_path_lookup (dentry=0xffff88801393ef00, mnt=mnt@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test", flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2638
+#19 0xffffffff819f2129 in mount_subtree (m=m@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test") at fs/namespace.c:3549
+#20 0xffffffff81eaed42 in do_nfs4_mount (server=<optimized out>, fc=fc@entry=0xffff8880082b3800, hostname=hostname@entry=0xffff888009316ea0 "192.168.122.210", export_path=export_path@entry=0xffff888009316f00 "/mufiye_test") at fs/nfs/nfs4super.c:206
+#21 0xffffffff81eaef6e in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#22 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#23 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#24 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#25 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#26 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#27 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#28 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#29 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#30 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#31 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#32 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#33 0x0000000000000010 in fixed_percpu_data ()
+#34 0x00007fff06645448 in ?? ()
+#35 0x0000559b489ae3e0 in ?? ()
+#36 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949af00) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949af00) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f258)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f258)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88800ff28c00, 
+    server=server@entry=0xffff888007ead000, msg=msg@entry=0xffff88800fd3f400, 
+    args=args@entry=0xffff88800fd3f3c0, res=res@entry=0xffff88800fd3f440, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e45dfe in nfs4_call_sync_sequence (clnt=clnt@entry=0xffff88800ff28c00, 
+    server=server@entry=0xffff888007ead000, msg=msg@entry=0xffff88800fd3f400, 
+    args=args@entry=0xffff88800fd3f3c0, res=res@entry=0xffff88800fd3f440) at fs/nfs/nfs4proc.c:1167
+#5  0xffffffff81e63e1d in nfs4_call_sync (clnt=0xffff88800ff28c00, 
+    server=server@entry=0xffff888007ead000, msg=msg@entry=0xffff88800fd3f400, 
+    args=args@entry=0xffff88800fd3f3c0, res=res@entry=0xffff88800fd3f440, 
+    cache_reply=cache_reply@entry=0) at fs/nfs/nfs4proc.c:1179
+#6  0xffffffff81e64032 in _nfs4_server_capabilities (server=server@entry=0xffff888007ead000, 
+    fhandle=fhandle@entry=0xffff888010897100) at fs/nfs/nfs4proc.c:3853
+#7  0xffffffff81e646a0 in nfs4_server_capabilities (server=server@entry=0xffff888007ead000, fhandle=fhandle@entry=0xffff888010897100) at fs/nfs/nfs4proc.c:3939
+#8  0xffffffff81da31c9 in nfs_probe_fsinfo (server=server@entry=0xffff888007ead000, mntfh=mntfh@entry=0xffff888010897100, fattr=fattr@entry=0xffff88800f7a1600) at fs/nfs/client.c:834
+#9  0xffffffff81da357c in nfs_probe_server (server=server@entry=0xffff888007ead000, mntfh=mntfh@entry=0xffff888010897100) at fs/nfs/client.c:887
+#10 0xffffffff81da38aa in nfs_clone_server (source=<optimized out>, fh=0xffff888010897100, fattr=0xffff88800e32d000, flavor=1) at fs/nfs/client.c:1111
+#11 0xffffffff81dfa756 in nfs_do_submount (fc=fc@entry=0xffff88800ebfad00) at fs/nfs/namespace.c:271
+#12 0xffffffff81ec6796 in nfs4_submount (fc=0xffff88800ebfad00, server=<optimized out>) at fs/nfs/nfs4namespace.c:470
+#13 0xffffffff81dfb78a in nfs_d_automount (path=<optimized out>) at fs/nfs/namespace.c:187
+#14 0xffffffff8199801c in follow_automount (path=path@entry=0xffff88800fd3f908, count=count@entry=0xffff88800fd3fab4, lookup_flags=lookup_flags@entry=5) at fs/namei.c:1355
+#15 0xffffffff81998146 in __traverse_mounts (path=path@entry=0xffff88800fd3f908, flags=flags@entry=3278860, jumped=jumped@entry=0xffff88800fd3f8c8, count=count@entry=0xffff88800fd3fab4, lookup_flags=lookup_flags@entry=5) at fs/namei.c:1400
+#16 0xffffffff819a687f in traverse_mounts (lookup_flags=5, count=0xffff88800fd3fab4, jumped=0xffff88800fd3f8c8, path=0xffff88800fd3f908) at fs/namei.c:1429
+#17 handle_mounts (seqp=0xffff88800fd3f8d8, inode=0xffff88800fd3f8e8, path=0xffff88800fd3f908, dentry=0xffff88800fd3fa60, nd=0xffff88800fd3fa60) at fs/namei.c:1538
+#18 step_into (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=1, dentry=dentry@entry=0xffff88800d65db00, inode=<optimized out>, seq=<optimized out>) at fs/namei.c:1844
+#19 0xffffffff819a7033 in walk_component (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=1) at fs/namei.c:2020
+#20 0xffffffff819a8b7b in lookup_last (nd=0xffff88800fd3fa60) at fs/namei.c:2469
+#21 path_lookupat (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=69, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2493
+#22 0xffffffff819abc58 in filename_lookup (dfd=dfd@entry=-100, name=name@entry=0xffff88800ed1c400, flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60, root=root@entry=0xffff88800fd3fbe0) at fs/namei.c:2522
+#23 0xffffffff819abf3c in vfs_path_lookup (dentry=0xffff88801393ef00, mnt=mnt@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test", flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2638
+#24 0xffffffff819f2129 in mount_subtree (m=m@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test") at fs/namespace.c:3549
+#25 0xffffffff81eaed42 in do_nfs4_mount (server=<optimized out>, fc=fc@entry=0xffff8880082b3800, hostname=hostname@entry=0xffff888009316ea0 "192.168.122.210", export_path=export_path@entry=0xffff888009316f00 "/mufiye_test") at fs/nfs/nfs4super.c:206
+#26 0xffffffff81eaef6e in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#27 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#28 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#29 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#30 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#31 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#32 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#33 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#34 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#35 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#36 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#37 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#38 0x0000000000000010 in fixed_percpu_data ()
+#39 0x00007fff06645448 in ?? ()
+#40 0x0000559b489ae3e0 in ?? ()
+#41 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949b900) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949b900) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f258)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f258)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88800ff28c00, 
+    server=server@entry=0xffff888007ead000, msg=msg@entry=0xffff88800fd3f3e0, 
+    args=args@entry=0xffff88800fd3f3a0, res=res@entry=0xffff88800fd3f420, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e45dfe in nfs4_call_sync_sequence (clnt=clnt@entry=0xffff88800ff28c00, 
+    server=server@entry=0xffff888007ead000, msg=msg@entry=0xffff88800fd3f3e0, 
+    args=args@entry=0xffff88800fd3f3a0, res=res@entry=0xffff88800fd3f420) at fs/nfs/nfs4proc.c:1167
+#5  0xffffffff81e63e1d in nfs4_call_sync (clnt=0xffff88800ff28c00, 
+    server=server@entry=0xffff888007ead000, msg=msg@entry=0xffff88800fd3f3e0, 
+    args=args@entry=0xffff88800fd3f3a0, res=res@entry=0xffff88800fd3f420, 
+    cache_reply=cache_reply@entry=0) at fs/nfs/nfs4proc.c:1179
+#6  0xffffffff81e654b0 in _nfs4_do_fsinfo (server=server@entry=0xffff888007ead000, 
+    fhandle=fhandle@entry=0xffff888010897100, fsinfo=fsinfo@entry=0xffff88800fd3f5d8) at fs/nfs/nfs4proc.c:5258
+#7  0xffffffff81e656be in nfs4_do_fsinfo (server=server@entry=0xffff888007ead000, fhandle=fhandle@entry=0xffff888010897100, fsinfo=fsinfo@entry=0xffff88800fd3f5d8) at fs/nfs/nfs4proc.c:5269
+#8  0xffffffff81e657ed in nfs4_proc_fsinfo (server=0xffff888007ead000, fhandle=0xffff888010897100, fsinfo=0xffff88800fd3f5d8) at fs/nfs/nfs4proc.c:5285
+#9  0xffffffff81da3261 in nfs_probe_fsinfo (server=server@entry=0xffff888007ead000, mntfh=mntfh@entry=0xffff888010897100, fattr=fattr@entry=0xffff88800f7a1600) at fs/nfs/client.c:842
+#10 0xffffffff81da357c in nfs_probe_server (server=server@entry=0xffff888007ead000, mntfh=mntfh@entry=0xffff888010897100) at fs/nfs/client.c:887
+#11 0xffffffff81da38aa in nfs_clone_server (source=<optimized out>, fh=0xffff888010897100, fattr=0xffff88800e32d000, flavor=1) at fs/nfs/client.c:1111
+#12 0xffffffff81dfa756 in nfs_do_submount (fc=fc@entry=0xffff88800ebfad00) at fs/nfs/namespace.c:271
+#13 0xffffffff81ec6796 in nfs4_submount (fc=0xffff88800ebfad00, server=<optimized out>) at fs/nfs/nfs4namespace.c:470
+#14 0xffffffff81dfb78a in nfs_d_automount (path=<optimized out>) at fs/nfs/namespace.c:187
+#15 0xffffffff8199801c in follow_automount (path=path@entry=0xffff88800fd3f908, count=count@entry=0xffff88800fd3fab4, lookup_flags=lookup_flags@entry=5) at fs/namei.c:1355
+#16 0xffffffff81998146 in __traverse_mounts (path=path@entry=0xffff88800fd3f908, flags=flags@entry=3278860, jumped=jumped@entry=0xffff88800fd3f8c8, count=count@entry=0xffff88800fd3fab4, lookup_flags=lookup_flags@entry=5) at fs/namei.c:1400
+#17 0xffffffff819a687f in traverse_mounts (lookup_flags=5, count=0xffff88800fd3fab4, jumped=0xffff88800fd3f8c8, path=0xffff88800fd3f908) at fs/namei.c:1429
+#18 handle_mounts (seqp=0xffff88800fd3f8d8, inode=0xffff88800fd3f8e8, path=0xffff88800fd3f908, dentry=0xffff88800fd3fa60, nd=0xffff88800fd3fa60) at fs/namei.c:1538
+#19 step_into (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=1, dentry=dentry@entry=0xffff88800d65db00, inode=<optimized out>, seq=<optimized out>) at fs/namei.c:1844
+#20 0xffffffff819a7033 in walk_component (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=1) at fs/namei.c:2020
+#21 0xffffffff819a8b7b in lookup_last (nd=0xffff88800fd3fa60) at fs/namei.c:2469
+#22 path_lookupat (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=69, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2493
+#23 0xffffffff819abc58 in filename_lookup (dfd=dfd@entry=-100, name=name@entry=0xffff88800ed1c400, flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60, root=root@entry=0xffff88800fd3fbe0) at fs/namei.c:2522
+#24 0xffffffff819abf3c in vfs_path_lookup (dentry=0xffff88801393ef00, mnt=mnt@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test", flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2638
+#25 0xffffffff819f2129 in mount_subtree (m=m@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test") at fs/namespace.c:3549
+#26 0xffffffff81eaed42 in do_nfs4_mount (server=<optimized out>, fc=fc@entry=0xffff8880082b3800, hostname=hostname@entry=0xffff888009316ea0 "192.168.122.210", export_path=export_path@entry=0xffff888009316f00 "/mufiye_test") at fs/nfs/nfs4super.c:206
+#27 0xffffffff81eaef6e in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#28 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#29 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#30 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#31 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#32 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#33 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#34 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#35 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#36 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#37 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#38 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#39 0x0000000000000010 in fixed_percpu_data ()
+#40 0x00007fff06645448 in ?? ()
+#41 0x0000559b489ae3e0 in ?? ()
+#42 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949bcc0) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949bcc0) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f298)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f298)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88800ff28c00, 
+    server=server@entry=0xffff888007ead000, msg=msg@entry=0xffff88800fd3f420, 
+    args=args@entry=0xffff88800fd3f3e0, res=res@entry=0xffff88800fd3f460, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e45dfe in nfs4_call_sync_sequence (clnt=clnt@entry=0xffff88800ff28c00, 
+    server=server@entry=0xffff888007ead000, msg=msg@entry=0xffff88800fd3f420, 
+    args=args@entry=0xffff88800fd3f3e0, res=res@entry=0xffff88800fd3f460) at fs/nfs/nfs4proc.c:1167
+#5  0xffffffff81e63e1d in nfs4_call_sync (clnt=0xffff88800ff28c00, 
+    server=server@entry=0xffff888007ead000, msg=msg@entry=0xffff88800fd3f420, 
+    args=args@entry=0xffff88800fd3f3e0, res=res@entry=0xffff88800fd3f460, 
+    cache_reply=cache_reply@entry=0) at fs/nfs/nfs4proc.c:1179
+#6  0xffffffff81e67efc in _nfs4_proc_pathconf (server=server@entry=0xffff888007ead000, 
+    fhandle=fhandle@entry=0xffff888010897100, pathconf=pathconf@entry=0xffff88800fd3f5b8) at fs/nfs/nfs4proc.c:5318
+#7  0xffffffff81e67fc2 in nfs4_proc_pathconf (server=0xffff888007ead000, fhandle=0xffff888010897100, pathconf=0xffff88800fd3f5b8) at fs/nfs/nfs4proc.c:5330
+#8  0xffffffff81da3468 in nfs_probe_fsinfo (server=server@entry=0xffff888007ead000, mntfh=mntfh@entry=0xffff888010897100, fattr=fattr@entry=0xffff88800f7a1600) at fs/nfs/client.c:855
+#9  0xffffffff81da357c in nfs_probe_server (server=server@entry=0xffff888007ead000, mntfh=mntfh@entry=0xffff888010897100) at fs/nfs/client.c:887
+#10 0xffffffff81da38aa in nfs_clone_server (source=<optimized out>, fh=0xffff888010897100, fattr=0xffff88800e32d000, flavor=1) at fs/nfs/client.c:1111
+#11 0xffffffff81dfa756 in nfs_do_submount (fc=fc@entry=0xffff88800ebfad00) at fs/nfs/namespace.c:271
+#12 0xffffffff81ec6796 in nfs4_submount (fc=0xffff88800ebfad00, server=<optimized out>) at fs/nfs/nfs4namespace.c:470
+#13 0xffffffff81dfb78a in nfs_d_automount (path=<optimized out>) at fs/nfs/namespace.c:187
+#14 0xffffffff8199801c in follow_automount (path=path@entry=0xffff88800fd3f908, count=count@entry=0xffff88800fd3fab4, lookup_flags=lookup_flags@entry=5) at fs/namei.c:1355
+#15 0xffffffff81998146 in __traverse_mounts (path=path@entry=0xffff88800fd3f908, flags=flags@entry=3278860, jumped=jumped@entry=0xffff88800fd3f8c8, count=count@entry=0xffff88800fd3fab4, lookup_flags=lookup_flags@entry=5) at fs/namei.c:1400
+#16 0xffffffff819a687f in traverse_mounts (lookup_flags=5, count=0xffff88800fd3fab4, jumped=0xffff88800fd3f8c8, path=0xffff88800fd3f908) at fs/namei.c:1429
+#17 handle_mounts (seqp=0xffff88800fd3f8d8, inode=0xffff88800fd3f8e8, path=0xffff88800fd3f908, dentry=0xffff88800fd3fa60, nd=0xffff88800fd3fa60) at fs/namei.c:1538
+#18 step_into (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=1, dentry=dentry@entry=0xffff88800d65db00, inode=<optimized out>, seq=<optimized out>) at fs/namei.c:1844
+#19 0xffffffff819a7033 in walk_component (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=1) at fs/namei.c:2020
+#20 0xffffffff819a8b7b in lookup_last (nd=0xffff88800fd3fa60) at fs/namei.c:2469
+#21 path_lookupat (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=69, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2493
+#22 0xffffffff819abc58 in filename_lookup (dfd=dfd@entry=-100, name=name@entry=0xffff88800ed1c400, flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60, root=root@entry=0xffff88800fd3fbe0) at fs/namei.c:2522
+#23 0xffffffff819abf3c in vfs_path_lookup (dentry=0xffff88801393ef00, mnt=mnt@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test", flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2638
+#24 0xffffffff819f2129 in mount_subtree (m=m@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test") at fs/namespace.c:3549
+#25 0xffffffff81eaed42 in do_nfs4_mount (server=<optimized out>, fc=fc@entry=0xffff8880082b3800, hostname=hostname@entry=0xffff888009316ea0 "192.168.122.210", export_path=export_path@entry=0xffff888009316f00 "/mufiye_test") at fs/nfs/nfs4super.c:206
+#26 0xffffffff81eaef6e in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#27 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#28 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#29 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#30 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#31 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#32 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#33 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#34 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#35 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#36 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#37 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#38 0x0000000000000010 in fixed_percpu_data ()
+#39 0x00007fff06645448 in ?? ()
+#40 0x0000559b489ae3e0 in ?? ()
+#41 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949a280) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949a280) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f208)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f208)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88800ff28c00, 
+    server=server@entry=0xffff888007ead000, msg=msg@entry=0xffff88800fd3f3b0, 
+    args=args@entry=0xffff88800fd3f370, res=res@entry=0xffff88800fd3f3f0, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e45dfe in nfs4_call_sync_sequence (clnt=clnt@entry=0xffff88800ff28c00, 
+    server=server@entry=0xffff888007ead000, msg=msg@entry=0xffff88800fd3f3b0, 
+    args=args@entry=0xffff88800fd3f370, res=res@entry=0xffff88800fd3f3f0) at fs/nfs/nfs4proc.c:1167
+#5  0xffffffff81e63e1d in nfs4_call_sync (clnt=0xffff88800ff28c00, 
+    server=server@entry=0xffff888007ead000, msg=msg@entry=0xffff88800fd3f3b0, 
+    args=args@entry=0xffff88800fd3f370, res=res@entry=0xffff88800fd3f3f0, 
+    cache_reply=cache_reply@entry=0) at fs/nfs/nfs4proc.c:1179
+#6  0xffffffff81e64032 in _nfs4_server_capabilities (server=server@entry=0xffff888007ead000, 
+    fhandle=fhandle@entry=0xffff888010897100) at fs/nfs/nfs4proc.c:3853
+#7  0xffffffff81e646a0 in nfs4_server_capabilities (server=server@entry=0xffff888007ead000, fhandle=fhandle@entry=0xffff888010897100) at fs/nfs/nfs4proc.c:3939
+#8  0xffffffff81e64732 in nfs4_proc_get_root (server=0xffff888007ead000, mntfh=0xffff888010897100, info=0xffff88800fd3f5c8) at fs/nfs/nfs4proc.c:4210
+#9  0xffffffff81dc0577 in nfs_get_root (s=s@entry=0xffff888007eae000, fc=fc@entry=0xffff88800ebfad00) at fs/nfs/getroot.c:87
+#10 0xffffffff81dd4fe3 in nfs_get_tree_common (fc=fc@entry=0xffff88800ebfad00) at fs/nfs/super.c:1307
+#11 0xffffffff81e23430 in nfs_get_tree (fc=0xffff88800ebfad00) at fs/nfs/fs_context.c:1432
+#12 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff88800ebfad00) at fs/super.c:1497
+#13 0xffffffff81dfaa8f in nfs_do_submount (fc=fc@entry=0xffff88800ebfad00) at fs/nfs/namespace.c:295
+#14 0xffffffff81ec6796 in nfs4_submount (fc=0xffff88800ebfad00, server=<optimized out>) at fs/nfs/nfs4namespace.c:470
+#15 0xffffffff81dfb78a in nfs_d_automount (path=<optimized out>) at fs/nfs/namespace.c:187
+#16 0xffffffff8199801c in follow_automount (path=path@entry=0xffff88800fd3f908, count=count@entry=0xffff88800fd3fab4, lookup_flags=lookup_flags@entry=5) at fs/namei.c:1355
+#17 0xffffffff81998146 in __traverse_mounts (path=path@entry=0xffff88800fd3f908, flags=flags@entry=3278860, jumped=jumped@entry=0xffff88800fd3f8c8, count=count@entry=0xffff88800fd3fab4, lookup_flags=lookup_flags@entry=5) at fs/namei.c:1400
+#18 0xffffffff819a687f in traverse_mounts (lookup_flags=5, count=0xffff88800fd3fab4, jumped=0xffff88800fd3f8c8, path=0xffff88800fd3f908) at fs/namei.c:1429
+#19 handle_mounts (seqp=0xffff88800fd3f8d8, inode=0xffff88800fd3f8e8, path=0xffff88800fd3f908, dentry=0xffff88800fd3fa60, nd=0xffff88800fd3fa60) at fs/namei.c:1538
+#20 step_into (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=1, dentry=dentry@entry=0xffff88800d65db00, inode=<optimized out>, seq=<optimized out>) at fs/namei.c:1844
+#21 0xffffffff819a7033 in walk_component (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=1) at fs/namei.c:2020
+#22 0xffffffff819a8b7b in lookup_last (nd=0xffff88800fd3fa60) at fs/namei.c:2469
+#23 path_lookupat (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=69, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2493
+#24 0xffffffff819abc58 in filename_lookup (dfd=dfd@entry=-100, name=name@entry=0xffff88800ed1c400, flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60, root=root@entry=0xffff88800fd3fbe0) at fs/namei.c:2522
+#25 0xffffffff819abf3c in vfs_path_lookup (dentry=0xffff88801393ef00, mnt=mnt@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test", flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2638
+#26 0xffffffff819f2129 in mount_subtree (m=m@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test") at fs/namespace.c:3549
+#27 0xffffffff81eaed42 in do_nfs4_mount (server=<optimized out>, fc=fc@entry=0xffff8880082b3800, hostname=hostname@entry=0xffff888009316ea0 "192.168.122.210", export_path=export_path@entry=0xffff888009316f00 "/mufiye_test") at fs/nfs/nfs4super.c:206
+#28 0xffffffff81eaef6e in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#29 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#30 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#31 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#32 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#33 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#34 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#35 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#36 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#37 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#38 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#39 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#40 0x0000000000000010 in fixed_percpu_data ()
+#41 0x00007fff06645448 in ?? ()
+#42 0x0000559b489ae3e0 in ?? ()
+#43 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800949b680) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800949b680) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800fd3f268)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800fd3f268)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=0xffff88800ff28c00, 
+    server=server@entry=0xffff888007ead000, msg=msg@entry=0xffff88800fd3f3b0, 
+    args=args@entry=0xffff88800fd3f370, res=res@entry=0xffff88800fd3f3f0, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e5ce15 in _nfs4_proc_getattr (server=server@entry=0xffff888007ead000, 
+    fhandle=fhandle@entry=0xffff888010897100, fattr=fattr@entry=0xffff88800e18e200, 
+    inode=inode@entry=0x0 <fixed_percpu_data>) at fs/nfs/nfs4proc.c:4306
+#5  0xffffffff81e5d063 in nfs4_proc_getattr (server=server@entry=0xffff888007ead000, 
+    fhandle=fhandle@entry=0xffff888010897100, fattr=fattr@entry=0xffff88800e18e200, 
+    inode=inode@entry=0x0 <fixed_percpu_data>) at fs/nfs/nfs4proc.c:4318
+#6  0xffffffff81e64754 in nfs4_proc_get_root (server=0xffff888007ead000, mntfh=0xffff888010897100, 
+    info=<optimized out>) at fs/nfs/nfs4proc.c:4216
+#7  0xffffffff81dc0577 in nfs_get_root (s=s@entry=0xffff888007eae000, fc=fc@entry=0xffff88800ebfad00) at fs/nfs/getroot.c:87
+#8  0xffffffff81dd4fe3 in nfs_get_tree_common (fc=fc@entry=0xffff88800ebfad00) at fs/nfs/super.c:1307
+#9  0xffffffff81e23430 in nfs_get_tree (fc=0xffff88800ebfad00) at fs/nfs/fs_context.c:1432
+#10 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff88800ebfad00) at fs/super.c:1497
+#11 0xffffffff81dfaa8f in nfs_do_submount (fc=fc@entry=0xffff88800ebfad00) at fs/nfs/namespace.c:295
+#12 0xffffffff81ec6796 in nfs4_submount (fc=0xffff88800ebfad00, server=<optimized out>) at fs/nfs/nfs4namespace.c:470
+#13 0xffffffff81dfb78a in nfs_d_automount (path=<optimized out>) at fs/nfs/namespace.c:187
+#14 0xffffffff8199801c in follow_automount (path=path@entry=0xffff88800fd3f908, count=count@entry=0xffff88800fd3fab4, lookup_flags=lookup_flags@entry=5) at fs/namei.c:1355
+#15 0xffffffff81998146 in __traverse_mounts (path=path@entry=0xffff88800fd3f908, flags=flags@entry=3278860, jumped=jumped@entry=0xffff88800fd3f8c8, count=count@entry=0xffff88800fd3fab4, lookup_flags=lookup_flags@entry=5) at fs/namei.c:1400
+#16 0xffffffff819a687f in traverse_mounts (lookup_flags=5, count=0xffff88800fd3fab4, jumped=0xffff88800fd3f8c8, path=0xffff88800fd3f908) at fs/namei.c:1429
+#17 handle_mounts (seqp=0xffff88800fd3f8d8, inode=0xffff88800fd3f8e8, path=0xffff88800fd3f908, dentry=0xffff88800fd3fa60, nd=0xffff88800fd3fa60) at fs/namei.c:1538
+#18 step_into (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=1, dentry=dentry@entry=0xffff88800d65db00, inode=<optimized out>, seq=<optimized out>) at fs/namei.c:1844
+#19 0xffffffff819a7033 in walk_component (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=1) at fs/namei.c:2020
+#20 0xffffffff819a8b7b in lookup_last (nd=0xffff88800fd3fa60) at fs/namei.c:2469
+#21 path_lookupat (nd=nd@entry=0xffff88800fd3fa60, flags=flags@entry=69, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2493
+#22 0xffffffff819abc58 in filename_lookup (dfd=dfd@entry=-100, name=name@entry=0xffff88800ed1c400, flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60, root=root@entry=0xffff88800fd3fbe0) at fs/namei.c:2522
+#23 0xffffffff819abf3c in vfs_path_lookup (dentry=0xffff88801393ef00, mnt=mnt@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test", flags=flags@entry=5, path=path@entry=0xffff88800fd3fc60) at fs/namei.c:2638
+#24 0xffffffff819f2129 in mount_subtree (m=m@entry=0xffff88800f778020, name=name@entry=0xffff888009316f00 "/mufiye_test") at fs/namespace.c:3549
+#25 0xffffffff81eaed42 in do_nfs4_mount (server=<optimized out>, fc=fc@entry=0xffff8880082b3800, hostname=hostname@entry=0xffff888009316ea0 "192.168.122.210", export_path=export_path@entry=0xffff888009316f00 "/mufiye_test") at fs/nfs/nfs4super.c:206
+#26 0xffffffff81eaef6e in nfs4_try_get_tree (fc=0xffff8880082b3800) at fs/nfs/nfs4super.c:226
+#27 0xffffffff81e233e5 in nfs_get_tree (fc=0xffff8880082b3800) at fs/nfs/fs_context.c:1430
+#28 0xffffffff8197a7cb in vfs_get_tree (fc=fc@entry=0xffff8880082b3800) at fs/super.c:1497
+#29 0xffffffff819eeef5 in do_new_mount (path=path@entry=0xffff88800fd3fe80, fstype=fstype@entry=0xffff88800929bac8 "nfs", sb_flags=sb_flags@entry=0, mnt_flags=mnt_flags@entry=32, name=name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", data=data@entry=0xffff888010ebc000) at fs/namespace.c:3040
+#30 0xffffffff819f0799 in path_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", path=path@entry=0xffff88800fd3fe80, type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3370
+#31 0xffffffff819f09a5 in do_mount (dev_name=dev_name@entry=0xffff8880087946c0 "192.168.122.210:/mufiye_test", dir_name=dir_name@entry=0x559b489ac570 "/mnt", type_page=type_page@entry=0xffff88800929bac8 "nfs", flags=flags@entry=0, data_page=data_page@entry=0xffff888010ebc000) at fs/namespace.c:3383
+#32 0xffffffff819f0a3a in __do_sys_mount (data=0xffff88800929bac8, flags=0, type=0xffff888010ebc000 "v4.1", dir_name=0x559b489ac570 "/mnt", dev_name=<optimized out>) at fs/namespace.c:3591
+#33 __se_sys_mount (dev_name=<optimized out>, dir_name=dir_name@entry=94125426394480, type=type@entry=94125426394416, flags=flags@entry=0, data=data@entry=94125426402736) at fs/namespace.c:3568
+#34 0xffffffff819f0b45 in __x64_sys_mount (regs=0xffff88800fd3ff58) at fs/namespace.c:3568
+#35 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800fd3ff58) at arch/x86/entry/common.c:50
+#36 do_syscall_64 (regs=0xffff88800fd3ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#37 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#38 0x0000000000000010 in fixed_percpu_data ()
+#39 0x00007fff06645448 in ?? ()
+#40 0x0000559b489ae3e0 in ?? ()
+#41 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}
+Already logging to nfs_mount_gdb_log1.txt.

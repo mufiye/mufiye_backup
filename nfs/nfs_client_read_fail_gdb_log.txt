@@ -1,0 +1,162 @@
+Continuing.
+
+Thread 1 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff8880197c37c0) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff8880197c37c0) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800b2b7978)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88800b2b7978)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=0xffff88801078d800, 
+    server=server@entry=0xffff8880134db000, msg=msg@entry=0xffff88800b2b7ac0, 
+    args=args@entry=0xffff88800b2b7a80, res=res@entry=0xffff88800b2b7b00, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e5ce15 in _nfs4_proc_getattr (server=server@entry=0xffff8880134db000, 
+    fhandle=fhandle@entry=0xffff88800ada5be8, fattr=fattr@entry=0xffff8880146b8e00, 
+    inode=inode@entry=0xffff88800ada5d80) at fs/nfs/nfs4proc.c:4306
+#5  0xffffffff81e5d063 in nfs4_proc_getattr (server=0xffff8880134db000, 
+    fhandle=0xffff88800ada5be8, fattr=0xffff8880146b8e00, inode=0xffff88800ada5d80)
+    at fs/nfs/nfs4proc.c:4318
+#6  0xffffffff81dcbb37 in __nfs_revalidate_inode (server=server@entry=0xffff8880134db000, 
+    inode=inode@entry=0xffff88800ada5d80) at fs/nfs/inode.c:1219
+#7  0xffffffff81dccc0f in nfs_getattr (mnt_userns=mnt_userns@entry=0xffffffff84ecd3a0 <init_user_ns>, path=path@entry=0xffff88800b2b7d70, stat=stat@entry=0xffff88800b2b7e20, request_mask=request_mask@entry=2047, query_flags=query_flags@entry=0) at fs/nfs/inode.c:906
+#8  0xffffffff81982a42 in vfs_getattr_nosec (path=path@entry=0xffff88800b2b7d70, stat=stat@entry=0xffff88800b2b7e20, request_mask=request_mask@entry=2047, query_flags=0, query_flags@entry=2048) at fs/stat.c:123
+#9  0xffffffff81982b64 in vfs_getattr (path=path@entry=0xffff88800b2b7d70, stat=stat@entry=0xffff88800b2b7e20, request_mask=request_mask@entry=2047, query_flags=query_flags@entry=2048) at fs/stat.c:160
+#10 0xffffffff81985299 in vfs_statx (dfd=dfd@entry=-100, filename=filename@entry=0xffff88800eb14400, flags=flags@entry=2048, stat=stat@entry=0xffff88800b2b7e20, request_mask=request_mask@entry=2047) at fs/stat.c:232
+#11 0xffffffff81985420 in vfs_fstatat (dfd=dfd@entry=-100, filename=filename@entry=0x560d628133cb ".", stat=stat@entry=0xffff88800b2b7e20, flags=flags@entry=0) at fs/stat.c:255
+#12 0xffffffff81985681 in vfs_stat (stat=0xffff88800b2b7e20, filename=0x560d628133cb ".") at ./include/linux/fs.h:3140
+#13 __do_sys_newstat (filename=filename@entry=0x560d628133cb ".", statbuf=statbuf@entry=0x7ffed098dfb0) at fs/stat.c:398
+#14 0xffffffff819856fb in __se_sys_newstat (filename=94615487198155, statbuf=statbuf@entry=140732398100400) at fs/stat.c:394
+#15 0xffffffff81985757 in __x64_sys_newstat (regs=0xffff88800b2b7f58) at fs/stat.c:394
+#16 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88800b2b7f58) at arch/x86/entry/common.c:50
+#17 do_syscall_64 (regs=0xffff88800b2b7f58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#18 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#19 0x0000560d64416090 in ?? ()
+#20 0x00007ffed098dfb0 in ?? ()
+#21 0x0000000000000024 in fixed_percpu_data ()
+#22 0x0000560d6443ce10 in ?? ()
+#23 0x0000000000000000 in ?? ()
+Continuing.
+[Switching to Thread 1.11]
+
+Thread 11 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff888014ebc280) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff888014ebc280) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88801696f688)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88801696f688)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88801078d800, 
+    server=server@entry=0xffff8880134db000, msg=msg@entry=0xffff88801696f7d0, 
+    args=args@entry=0xffff88801696f810, res=res@entry=0xffff88801696f860, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e45dfe in nfs4_call_sync_sequence (clnt=clnt@entry=0xffff88801078d800, 
+    server=server@entry=0xffff8880134db000, msg=msg@entry=0xffff88801696f7d0, 
+    args=args@entry=0xffff88801696f810, res=res@entry=0xffff88801696f860) at fs/nfs/nfs4proc.c:1167
+#5  0xffffffff81e63e1d in nfs4_call_sync (clnt=0xffff88801078d800, 
+    server=server@entry=0xffff8880134db000, msg=msg@entry=0xffff88801696f7d0, 
+    args=args@entry=0xffff88801696f810, res=res@entry=0xffff88801696f860, 
+    cache_reply=cache_reply@entry=0) at fs/nfs/nfs4proc.c:1179
+#6  0xffffffff81e6b06c in _nfs4_proc_access (inode=inode@entry=0xffff88800ada5d80, 
+    entry=entry@entry=0xffff88801696f9e8, cred=cred@entry=0xffff888014ca5e00) at fs/nfs/nfs4proc.c:4587
+#7  0xffffffff81e6b3a7 in nfs4_proc_access (inode=0xffff88800ada5d80, entry=0xffff88801696f9e8, cred=0xffff888014ca5e00) at fs/nfs/nfs4proc.c:4605
+#8  0xffffffff81db18f3 in nfs_do_access (inode=inode@entry=0xffff88800ada5d80, cred=cred@entry=0xffff888014ca5e00, mask=mask@entry=1) at fs/nfs/dir.c:3129
+#9  0xffffffff81db1de7 in nfs_permission (mnt_userns=mnt_userns@entry=0xffffffff84ecd3a0 <init_user_ns>, inode=inode@entry=0xffff88800ada5d80, mask=mask@entry=1) at fs/nfs/dir.c:3225
+#10 0xffffffff8199eb81 in do_inode_permission (mask=1, inode=0xffff88800ada5d80, mnt_userns=0xffffffff84ecd3a0 <init_user_ns>) at fs/namei.c:458
+#11 inode_permission (mnt_userns=mnt_userns@entry=0xffffffff84ecd3a0 <init_user_ns>, inode=0xffff88800ada5d80, mask=mask@entry=1) at fs/namei.c:525
+#12 0xffffffff819a7a0f in may_lookup (nd=0xffff88801696fc10, mnt_userns=0xffffffff84ecd3a0 <init_user_ns>) at fs/namei.c:1731
+#13 link_path_walk (name=name@entry=0xffff8880179bc420 "hello_mufiye.txt", nd=nd@entry=0xffff88801696fc10) at fs/namei.c:2283
+#14 0xffffffff819ad10d in path_openat (nd=nd@entry=0xffff88801696fc10, op=op@entry=0xffff88801696fda8, flags=flags@entry=65) at fs/namei.c:3649
+#15 0xffffffff819ad33b in do_filp_open (dfd=dfd@entry=-100, pathname=pathname@entry=0xffff8880179bc400, op=op@entry=0xffff88801696fda8) at fs/namei.c:3680
+#16 0xffffffff8196a786 in do_sys_openat2 (dfd=dfd@entry=-100, filename=filename@entry=0x7fff50f55ead "hello_mufiye.txt", how=how@entry=0xffff88801696fe40) at fs/open.c:1278
+#17 0xffffffff8196b496 in do_sys_open (dfd=dfd@entry=-100, filename=filename@entry=0x7fff50f55ead "hello_mufiye.txt", flags=<optimized out>, mode=mode@entry=0) at fs/open.c:1294
+#18 0xffffffff8196b669 in __do_sys_openat (mode=0, flags=<optimized out>, filename=0x7fff50f55ead "hello_mufiye.txt", dfd=-100) at fs/open.c:1310
+#19 __se_sys_openat (dfd=4294967196, filename=filename@entry=140734551645869, flags=flags@entry=0, mode=mode@entry=0) at fs/open.c:1305
+#20 0xffffffff8196b715 in __x64_sys_openat (regs=0xffff88801696ff58) at fs/open.c:1305
+#21 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88801696ff58) at arch/x86/entry/common.c:50
+#22 do_syscall_64 (regs=0xffff88801696ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#23 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+Backtrace stopped: Cannot access memory at address 0x10000
+Continuing.
+[Switching to Thread 1.10]
+
+Thread 10 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800edf43c0) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800edf43c0) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88801696f628)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88801696f628)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88801078d800, 
+    server=server@entry=0xffff8880134db000, msg=msg@entry=0xffff88801696f720, 
+    args=args@entry=0xffff88801696f760, res=res@entry=0xffff88801696f7b0, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e5d582 in _nfs4_proc_lookup (clnt=clnt@entry=0xffff88801078d800, 
+    dir=dir@entry=0xffff88800ada5d80, dentry=dentry@entry=0xffff888011a97000, 
+    fhandle=fhandle@entry=0xffff88801479e100, fattr=fattr@entry=0xffff88801871f400)
+    at fs/nfs/nfs4proc.c:4423
+#5  0xffffffff81e76d53 in nfs4_proc_lookup_common (clnt=clnt@entry=0xffff88801696f950, 
+    dir=dir@entry=0xffff88800ada5d80, dentry=dentry@entry=0xffff888011a97000, 
+    fhandle=fhandle@entry=0xffff88801479e100, fattr=fattr@entry=0xffff88801871f400)
+    at fs/nfs/nfs4proc.c:4448
+#6  0xffffffff81e773a2 in nfs4_proc_lookup (dir=0xffff88800ada5d80, dentry=0xffff888011a97000, fhandle=0xffff88801479e100, fattr=0xffff88801871f400) at fs/nfs/nfs4proc.c:4489
+#7  0xffffffff81db7939 in nfs_lookup_revalidate_dentry (dir=dir@entry=0xffff88800ada5d80, dentry=dentry@entry=0xffff888011a97000, inode=inode@entry=0xffff888017f46b48, flags=flags@entry=257) at fs/nfs/dir.c:1672
+#8  0xffffffff81db80c8 in nfs4_do_lookup_revalidate (dir=0xffff88800ada5d80, dentry=0xffff888011a97000, flags=257) at fs/nfs/dir.c:2210
+#9  0xffffffff81daaf45 in __nfs_lookup_revalidate (dentry=dentry@entry=0xffff888011a97000, flags=flags@entry=257, reval=reval@entry=0xffffffff81db7fc0 <nfs4_do_lookup_revalidate>) at fs/nfs/dir.c:1790
+#10 0xffffffff81daafb9 in nfs4_lookup_revalidate (dentry=0xffff888011a97000, flags=257) at fs/nfs/dir.c:2218
+#11 0xffffffff8199d7fc in d_revalidate (flags=257, dentry=0xffff888011a97000) at fs/namei.c:848
+#12 lookup_fast (nd=nd@entry=0xffff88801696fc10, inode=inode@entry=0xffff88801696fb50, seqp=seqp@entry=0xffff88801696fb40) at fs/namei.c:1662
+#13 0xffffffff819a92dc in open_last_lookups (nd=nd@entry=0xffff88801696fc10, file=file@entry=0xffff88800eccadc0, op=op@entry=0xffff88801696fda8) at fs/namei.c:3413
+#14 0xffffffff819ad126 in path_openat (nd=nd@entry=0xffff88801696fc10, op=op@entry=0xffff88801696fda8, flags=flags@entry=65) at fs/namei.c:3650
+#15 0xffffffff819ad33b in do_filp_open (dfd=dfd@entry=-100, pathname=pathname@entry=0xffff8880179bc400, op=op@entry=0xffff88801696fda8) at fs/namei.c:3680
+#16 0xffffffff8196a786 in do_sys_openat2 (dfd=dfd@entry=-100, filename=filename@entry=0x7fff50f55ead "hello_mufiye.txt", how=how@entry=0xffff88801696fe40) at fs/open.c:1278
+#17 0xffffffff8196b496 in do_sys_open (dfd=dfd@entry=-100, filename=filename@entry=0x7fff50f55ead "hello_mufiye.txt", flags=<optimized out>, mode=mode@entry=0) at fs/open.c:1294
+#18 0xffffffff8196b669 in __do_sys_openat (mode=0, flags=<optimized out>, filename=0x7fff50f55ead "hello_mufiye.txt", dfd=-100) at fs/open.c:1310
+#19 __se_sys_openat (dfd=4294967196, filename=filename@entry=140734551645869, flags=flags@entry=0, mode=mode@entry=0) at fs/open.c:1305
+#20 0xffffffff8196b715 in __x64_sys_openat (regs=0xffff88801696ff58) at fs/open.c:1305
+#21 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88801696ff58) at arch/x86/entry/common.c:50
+#22 do_syscall_64 (regs=0xffff88801696ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#23 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+Backtrace stopped: Cannot access memory at address 0x10000
+Continuing.
+
+Thread 10 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800edf4500) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800edf4500) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88801696f4f8)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e5c292 in nfs4_run_open_task (data=data@entry=0xffff88801178f800, 
+    ctx=ctx@entry=0xffff88800aaa6200) at fs/nfs/nfs4proc.c:2587
+#3  0xffffffff81e6d425 in _nfs4_proc_open (data=data@entry=0xffff88801178f800, 
+    ctx=ctx@entry=0xffff88800aaa6200) at fs/nfs/nfs4proc.c:2676
+#4  0xffffffff81e703c1 in _nfs4_open_and_get_state (opendata=opendata@entry=0xffff88801178f800, 
+    flags=flags@entry=32768, ctx=ctx@entry=0xffff88800aaa6200) at fs/nfs/nfs4proc.c:3043
+#5  0xffffffff81e70e78 in _nfs4_do_open (dir=dir@entry=0xffff88800ada5d80, 
+    ctx=ctx@entry=0xffff88800aaa6200, flags=flags@entry=32768, c=c@entry=0xffff88801696f738, 
+    opened=opened@entry=0xffff88801696f8f0) at fs/nfs/nfs4proc.c:3163
+#6  0xffffffff81e71a6d in nfs4_do_open (dir=dir@entry=0xffff88800ada5d80, 
+    ctx=ctx@entry=0xffff88800aaa6200, flags=flags@entry=32768, 
+    sattr=sattr@entry=0xffff88801696f940, label=label@entry=0x0 <fixed_percpu_data>, 
+    opened=opened@entry=0xffff88801696f8f0) at fs/nfs/nfs4proc.c:3234
+#7  0xffffffff81e71ca1 in nfs4_atomic_open (dir=0xffff88800ada5d80, ctx=0xffff88800aaa6200, 
+    open_flags=<optimized out>, attr=0xffff88801696f940, opened=<optimized out>) at fs/nfs/nfs4proc.c:3804
+#8  0xffffffff81db91d8 in nfs_atomic_open (dir=0xffff88800ada5d80, dentry=0xffff88800ad91200, file=<optimized out>, open_flags=32768, mode=<optimized out>) at fs/nfs/dir.c:2097
+#9  0xffffffff8199c4d5 in atomic_open (nd=nd@entry=0xffff88801696fc10, dentry=dentry@entry=0xffff88800ad91200, file=file@entry=0xffff88800eccadc0, open_flag=<optimized out>, open_flag@entry=32768, mode=mode@entry=0) at fs/namei.c:3188
+#10 0xffffffff8199ff9f in lookup_open (nd=nd@entry=0xffff88801696fc10, file=file@entry=0xffff88800eccadc0, op=op@entry=0xffff88801696fda8, got_write=got_write@entry=false) at fs/namei.c:3345
+#11 0xffffffff819a9780 in open_last_lookups (nd=nd@entry=0xffff88801696fc10, file=file@entry=0xffff88800eccadc0, op=op@entry=0xffff88801696fda8) at fs/namei.c:3444
+#12 0xffffffff819ad126 in path_openat (nd=nd@entry=0xffff88801696fc10, op=op@entry=0xffff88801696fda8, flags=flags@entry=65) at fs/namei.c:3650
+#13 0xffffffff819ad33b in do_filp_open (dfd=dfd@entry=-100, pathname=pathname@entry=0xffff8880179bc400, op=op@entry=0xffff88801696fda8) at fs/namei.c:3680
+#14 0xffffffff8196a786 in do_sys_openat2 (dfd=dfd@entry=-100, filename=filename@entry=0x7fff50f55ead "hello_mufiye.txt", how=how@entry=0xffff88801696fe40) at fs/open.c:1278
+#15 0xffffffff8196b496 in do_sys_open (dfd=dfd@entry=-100, filename=filename@entry=0x7fff50f55ead "hello_mufiye.txt", flags=<optimized out>, mode=mode@entry=0) at fs/open.c:1294
+#16 0xffffffff8196b669 in __do_sys_openat (mode=0, flags=<optimized out>, filename=0x7fff50f55ead "hello_mufiye.txt", dfd=-100) at fs/open.c:1310
+#17 __se_sys_openat (dfd=4294967196, filename=filename@entry=140734551645869, flags=flags@entry=0, mode=mode@entry=0) at fs/open.c:1305
+#18 0xffffffff8196b715 in __x64_sys_openat (regs=0xffff88801696ff58) at fs/open.c:1305
+#19 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88801696ff58) at arch/x86/entry/common.c:50
+#20 do_syscall_64 (regs=0xffff88801696ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#21 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+Backtrace stopped: Cannot access memory at address 0x10000
+Continuing.
+
+Thread 10 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}

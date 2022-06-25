@@ -1,0 +1,92 @@
+Breakpoint 1 at 0xffffffff819752a9: file fs/read_write.c, line 610.
+Continuing.
+[Switching to Thread 1.16]
+
+Thread 16 hit Breakpoint 1, ksys_read (fd=fd@entry=16, buf=buf@entry=0x7fff38918190 "\001", count=count@entry=8) at fs/read_write.c:610
+610	{
+#0  ksys_read (fd=fd@entry=16, buf=buf@entry=0x7fff38918190 "\001", count=count@entry=8)
+    at fs/read_write.c:610
+#1  0xffffffff819754b4 in __do_sys_read (count=8, buf=0x7fff38918190 "\001", fd=16)
+    at fs/read_write.c:630
+#2  __se_sys_read (fd=16, buf=buf@entry=140734142448016, count=count@entry=8)
+    at fs/read_write.c:628
+#3  0xffffffff81975538 in __x64_sys_read (regs=0xffff8880136f7f58) at fs/read_write.c:628
+#4  0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff8880136f7f58)
+    at arch/x86/entry/common.c:50
+#5  do_syscall_64 (regs=0xffff8880136f7f58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#6  0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#7  0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 16 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}
+Breakpoint 2 at 0xffffffff819752a9: file fs/read_write.c, line 610.
+Continuing.
+
+Thread 16 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}
+No breakpoint number 1.
+Continuing.
+
+Thread 16 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}
+Breakpoint 3 at 0xffffffff81fd0750: file fs/nfsd/nfs4xdr.c, line 3872.
+Breakpoint 4 at 0xffffffff81fcfaae: file fs/nfsd/nfs4xdr.c, line 3938.
+Continuing.
+[Switching to Thread 1.10]
+
+Thread 10 hit Breakpoint 3, nfsd4_encode_splice_read (resp=resp@entry=0xffff888019858000, read=read@entry=0xffff8880198511a0, file=file@entry=0xffff8880110f1b80, maxcount=maxcount@entry=4096) at fs/nfsd/nfs4xdr.c:3872
+3872	{
+#0  nfsd4_encode_splice_read (resp=resp@entry=0xffff888019858000, 
+    read=read@entry=0xffff8880198511a0, file=file@entry=0xffff8880110f1b80, 
+    maxcount=maxcount@entry=4096) at fs/nfsd/nfs4xdr.c:3872
+#1  0xffffffff81fd1990 in nfsd4_encode_read (resp=resp@entry=0xffff888019858000, 
+    nfserr=nfserr@entry=0, read=read@entry=0xffff8880198511a0) at fs/nfsd/nfs4xdr.c:4004
+#2  0xffffffff81fe45a9 in nfsd4_encode_operation (resp=resp@entry=0xffff888019858000, 
+    op=op@entry=0xffff888019851180) at fs/nfsd/nfs4xdr.c:5323
+#3  0xffffffff81fc5795 in nfsd4_proc_compound (rqstp=0xffff88800e458000) at fs/nfsd/nfs4proc.c:2756
+#4  0xffffffff81f72f60 in nfsd_dispatch (rqstp=0xffff88800e458000, statp=0xffff88801a041014)
+    at fs/nfsd/nfssvc.c:1056
+#5  0xffffffff83c53209 in svc_process_common (rqstp=rqstp@entry=0xffff88800e458000, 
+    argv=argv@entry=0xffff88800e4581a0, resv=resv@entry=0xffff88800e458280)
+    at net/sunrpc/svc.c:1339
+#6  0xffffffff83c53eee in svc_process (rqstp=rqstp@entry=0xffff88800e458000)
+    at net/sunrpc/svc.c:1470
+#7  0xffffffff81f71eb3 in nfsd (vrqstp=0xffff88800e458000) at fs/nfsd/nfssvc.c:978
+#8  0xffffffff8123d678 in kthread (_create=<optimized out>) at kernel/kthread.c:376
+#9  0xffffffff81006682 in ret_from_fork () at arch/x86/entry/entry_64.S:302
+#10 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 10 hit Breakpoint 3, nfsd4_encode_splice_read (resp=resp@entry=0xffff888019858000, read=read@entry=0xffff8880198511a0, file=file@entry=0xffff8880110f1b80, maxcount=maxcount@entry=4096) at fs/nfsd/nfs4xdr.c:3872
+3872	{
+#0  nfsd4_encode_splice_read (resp=resp@entry=0xffff888019858000, 
+    read=read@entry=0xffff8880198511a0, file=file@entry=0xffff8880110f1b80, 
+    maxcount=maxcount@entry=4096) at fs/nfsd/nfs4xdr.c:3872
+#1  0xffffffff81fd1990 in nfsd4_encode_read (resp=resp@entry=0xffff888019858000, 
+    nfserr=nfserr@entry=0, read=read@entry=0xffff8880198511a0) at fs/nfsd/nfs4xdr.c:4004
+#2  0xffffffff81fe45a9 in nfsd4_encode_operation (resp=resp@entry=0xffff888019858000, 
+    op=op@entry=0xffff888019851180) at fs/nfsd/nfs4xdr.c:5323
+#3  0xffffffff81fc5795 in nfsd4_proc_compound (rqstp=0xffff88800e458000) at fs/nfsd/nfs4proc.c:2756
+#4  0xffffffff81f72f60 in nfsd_dispatch (rqstp=0xffff88800e458000, statp=0xffff88801a041014)
+    at fs/nfsd/nfssvc.c:1056
+#5  0xffffffff83c53209 in svc_process_common (rqstp=rqstp@entry=0xffff88800e458000, 
+    argv=argv@entry=0xffff88800e4581a0, resv=resv@entry=0xffff88800e458280)
+    at net/sunrpc/svc.c:1339
+#6  0xffffffff83c53eee in svc_process (rqstp=rqstp@entry=0xffff88800e458000)
+    at net/sunrpc/svc.c:1470
+#7  0xffffffff81f71eb3 in nfsd (vrqstp=0xffff88800e458000) at fs/nfsd/nfssvc.c:978
+#8  0xffffffff8123d678 in kthread (_create=<optimized out>) at kernel/kthread.c:376
+#9  0xffffffff81006682 in ret_from_fork () at arch/x86/entry/entry_64.S:302
+#10 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 10 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}
+Warning: 'set logging off', an alias for the command 'set logging enabled', is deprecated.
+Use 'set logging enabled off'.
+

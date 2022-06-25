@@ -1,0 +1,345 @@
+Continuing.
+
+Thread 1 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}
+No symbol "opnum" in current context.
+Continuing.
+[Switching to Thread 1.6]
+
+Thread 6 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=42) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 42
+Continuing.
+[Switching to Thread 1.2]
+
+Thread 2 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=42) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 42
+Continuing.
+[Switching to Thread 1.10]
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=43) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 43
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=58) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 58
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=24) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 24
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=52) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 52
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=24) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 24
+Continuing.
+[Switching to Thread 1.11]
+
+Thread 11 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+[Switching to Thread 1.10]
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=10) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 10
+Continuing.
+[Switching to Thread 1.7]
+
+Thread 7 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+[Switching to Thread 1.10]
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+[Switching to Thread 1.11]
+
+Thread 11 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 11 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 11 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 22
+Continuing.
+
+Thread 11 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+[Switching to Thread 1.10]
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=3) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 3
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=15) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 15
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=10) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 10
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=15) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 15
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=10) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 10
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+1: opnum = 9
+Continuing.
+
+Thread 10 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}

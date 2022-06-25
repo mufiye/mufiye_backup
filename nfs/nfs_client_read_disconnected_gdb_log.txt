@@ -1,0 +1,77 @@
+Breakpoint 1 at 0xffffffff83c48b07: file net/sunrpc/sched.c, line 998.
+No breakpoints or watchpoints.
+Continuing.
+
+Thread 1 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}
+Breakpoint 2 at 0xffffffff83c48b07: file net/sunrpc/sched.c, line 998.
+Continuing.
+[Switching to Thread 1.2]
+
+Thread 2 hit Breakpoint 2, rpc_execute (task=task@entry=0xffff88800e9fcc80) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800e9fcc80) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff888016927628)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff888016927628)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff88801078d800, 
+    server=server@entry=0xffff8880134db000, msg=msg@entry=0xffff888016927720, 
+    args=args@entry=0xffff888016927760, res=res@entry=0xffff8880169277b0, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e5d582 in _nfs4_proc_lookup (clnt=clnt@entry=0xffff88801078d800, 
+    dir=dir@entry=0xffff88800ada5d80, dentry=dentry@entry=0xffff888011a97b00, 
+    fhandle=fhandle@entry=0xffff88801050f000, fattr=fattr@entry=0xffff888010012a00)
+    at fs/nfs/nfs4proc.c:4423
+#5  0xffffffff81e76d53 in nfs4_proc_lookup_common (clnt=clnt@entry=0xffff888016927950, 
+    dir=dir@entry=0xffff88800ada5d80, dentry=dentry@entry=0xffff888011a97b00, 
+    fhandle=fhandle@entry=0xffff88801050f000, fattr=fattr@entry=0xffff888010012a00)
+    at fs/nfs/nfs4proc.c:4448
+#6  0xffffffff81e773a2 in nfs4_proc_lookup (dir=0xffff88800ada5d80, dentry=0xffff888011a97b00, fhandle=0xffff88801050f000, fattr=0xffff888010012a00) at fs/nfs/nfs4proc.c:4489
+#7  0xffffffff81db7939 in nfs_lookup_revalidate_dentry (dir=dir@entry=0xffff88800ada5d80, dentry=dentry@entry=0xffff888011a97b00, inode=inode@entry=0xffff888017f41400, flags=flags@entry=257) at fs/nfs/dir.c:1672
+#8  0xffffffff81db80c8 in nfs4_do_lookup_revalidate (dir=0xffff88800ada5d80, dentry=0xffff888011a97b00, flags=257) at fs/nfs/dir.c:2210
+#9  0xffffffff81daaf45 in __nfs_lookup_revalidate (dentry=dentry@entry=0xffff888011a97b00, flags=flags@entry=257, reval=reval@entry=0xffffffff81db7fc0 <nfs4_do_lookup_revalidate>) at fs/nfs/dir.c:1790
+#10 0xffffffff81daafb9 in nfs4_lookup_revalidate (dentry=0xffff888011a97b00, flags=257) at fs/nfs/dir.c:2218
+#11 0xffffffff8199d6bb in d_revalidate (flags=257, dentry=0xffff888011a97b00) at fs/namei.c:848
+#12 lookup_fast (nd=nd@entry=0xffff888016927c10, inode=inode@entry=0xffff888016927b50, seqp=seqp@entry=0xffff888016927b40) at fs/namei.c:1657
+#13 0xffffffff819a92dc in open_last_lookups (nd=nd@entry=0xffff888016927c10, file=file@entry=0xffff88800eca1680, op=op@entry=0xffff888016927da8) at fs/namei.c:3413
+#14 0xffffffff819ad126 in path_openat (nd=nd@entry=0xffff888016927c10, op=op@entry=0xffff888016927da8, flags=flags@entry=65) at fs/namei.c:3650
+#15 0xffffffff819ad33b in do_filp_open (dfd=dfd@entry=-100, pathname=pathname@entry=0xffff888008d5a200, op=op@entry=0xffff888016927da8) at fs/namei.c:3680
+#16 0xffffffff8196a786 in do_sys_openat2 (dfd=dfd@entry=-100, filename=filename@entry=0x7ffccc9cbeb2 "hello11.txt", how=how@entry=0xffff888016927e40) at fs/open.c:1278
+#17 0xffffffff8196b496 in do_sys_open (dfd=dfd@entry=-100, filename=filename@entry=0x7ffccc9cbeb2 "hello11.txt", flags=<optimized out>, mode=mode@entry=0) at fs/open.c:1294
+#18 0xffffffff8196b669 in __do_sys_openat (mode=0, flags=<optimized out>, filename=0x7ffccc9cbeb2 "hello11.txt", dfd=-100) at fs/open.c:1310
+#19 __se_sys_openat (dfd=4294967196, filename=filename@entry=140723741310642, flags=flags@entry=0, mode=mode@entry=0) at fs/open.c:1305
+#20 0xffffffff8196b715 in __x64_sys_openat (regs=0xffff888016927f58) at fs/open.c:1305
+#21 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff888016927f58) at arch/x86/entry/common.c:50
+#22 do_syscall_64 (regs=0xffff888016927f58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#23 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+Backtrace stopped: Cannot access memory at address 0x10000
+Continuing.
+[Switching to Thread 1.11]
+
+Thread 11 hit Breakpoint 2, rpc_execute (task=task@entry=0xffff88800e240c80) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800e240c80) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88800d7c7da0)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e56b4a in _nfs41_proc_sequence (clp=clp@entry=0xffff88800e82f800, 
+    cred=cred@entry=0xffffffff857ab940 <machine_cred>, slot=slot@entry=0x0 <fixed_percpu_data>, 
+    is_privileged=is_privileged@entry=false) at fs/nfs/nfs4proc.c:9398
+#3  0xffffffff81e5be29 in nfs41_proc_async_sequence (clp=0xffff88800e82f800, 
+    cred=0xffffffff857ab940 <machine_cred>, renew_flags=1) at fs/nfs/nfs4proc.c:9416
+#4  0xffffffff81eae19d in nfs4_renew_state (work=0xffff88800e82f950) at fs/nfs/nfs4renewd.c:92
+#5  0xffffffff8122af12 in process_one_work (worker=worker@entry=0xffff88800b142700, 
+    work=work@entry=0xffff88800e82f950) at kernel/workqueue.c:2289
+#6  0xffffffff8122bffb in worker_thread (__worker=0xffff88800b142700) at kernel/workqueue.c:2436
+#7  0xffffffff8123d678 in kthread (_create=<optimized out>) at kernel/kthread.c:376
+#8  0xffffffff81006682 in ret_from_fork () at arch/x86/entry/entry_64.S:302
+#9  0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 11 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}
+Detaching from program: /home/mufiye/mufiye_kernel/linux-kernel/vmlinux, process 1
+Ending remote debugging.
+[Inferior 1 (process 1) detached]

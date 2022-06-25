@@ -1,0 +1,120 @@
+Already logging to nfs_server_write_gdb_log.txt.
+Continuing.
+[Switching to Thread 1.11]
+
+Thread 11 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$22 = 53
+Continuing.
+
+Thread 11 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$23 = 53
+Continuing.
+
+Thread 11 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$24 = 22
+Continuing.
+[Switching to Thread 1.10]
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$25 = 53
+Continuing.
+[Switching to Thread 1.11]
+
+Thread 11 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$26 = 9
+Continuing.
+[Switching to Thread 1.10]
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$27 = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$28 = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=18) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$29 = 18
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=3) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$30 = 3
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$31 = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$32 = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$33 = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=34) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$34 = 34
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$35 = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$36 = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$37 = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=38) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$38 = 38
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$39 = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=53) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$40 = 53
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=22) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$41 = 22
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=9) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$42 = 9
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_increment_op_stats (opnum=4) at fs/nfsd/nfs4proc.c:2494
+2494		if (opnum >= FIRST_NFS4_OP && opnum <= LAST_NFS4_OP)
+$43 = 4
+Continuing.
+
+Thread 10 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}

@@ -1,0 +1,47 @@
+Breakpoint 1 at 0xffffffff81fc848f: file fs/nfsd/nfs4xdr.c, line 3612.
+Continuing.
+[Switching to Thread 1.10]
+
+Thread 10 hit Breakpoint 1, nfsd4_encode_close (resp=resp@entry=0xffff88800a828000, nfserr=nfserr@entry=0, close=close@entry=0xffff888010321a40) at fs/nfsd/nfs4xdr.c:3612
+3612	{
+#0  nfsd4_encode_close (resp=resp@entry=0xffff88800a828000, nfserr=nfserr@entry=0, 
+    close=close@entry=0xffff888010321a40) at fs/nfsd/nfs4xdr.c:3612
+#1  0xffffffff81fe45a9 in nfsd4_encode_operation (resp=resp@entry=0xffff88800a828000, 
+    op=op@entry=0xffff888010321a20) at fs/nfsd/nfs4xdr.c:5323
+#2  0xffffffff81fc5795 in nfsd4_proc_compound (rqstp=0xffff888008318000) at fs/nfsd/nfs4proc.c:2756
+#3  0xffffffff81f72f60 in nfsd_dispatch (rqstp=0xffff888008318000, statp=0xffff8880172f8014)
+    at fs/nfsd/nfssvc.c:1056
+#4  0xffffffff83c53209 in svc_process_common (rqstp=rqstp@entry=0xffff888008318000, 
+    argv=argv@entry=0xffff8880083181a0, resv=resv@entry=0xffff888008318280)
+    at net/sunrpc/svc.c:1339
+#5  0xffffffff83c53eee in svc_process (rqstp=rqstp@entry=0xffff888008318000)
+    at net/sunrpc/svc.c:1470
+#6  0xffffffff81f71eb3 in nfsd (vrqstp=0xffff888008318000) at fs/nfsd/nfssvc.c:978
+#7  0xffffffff8123d678 in kthread (_create=<optimized out>) at kernel/kthread.c:376
+#8  0xffffffff81006682 in ret_from_fork () at arch/x86/entry/entry_64.S:302
+#9  0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 10 hit Breakpoint 1, nfsd4_encode_close (resp=resp@entry=0xffff88800a828000, nfserr=nfserr@entry=0, close=close@entry=0xffff888010321a40) at fs/nfsd/nfs4xdr.c:3612
+3612	{
+#0  nfsd4_encode_close (resp=resp@entry=0xffff88800a828000, nfserr=nfserr@entry=0, 
+    close=close@entry=0xffff888010321a40) at fs/nfsd/nfs4xdr.c:3612
+#1  0xffffffff81fe45a9 in nfsd4_encode_operation (resp=resp@entry=0xffff88800a828000, 
+    op=op@entry=0xffff888010321a20) at fs/nfsd/nfs4xdr.c:5323
+#2  0xffffffff81fc5795 in nfsd4_proc_compound (rqstp=0xffff888008318000) at fs/nfsd/nfs4proc.c:2756
+#3  0xffffffff81f72f60 in nfsd_dispatch (rqstp=0xffff888008318000, statp=0xffff8880172f8014)
+    at fs/nfsd/nfssvc.c:1056
+#4  0xffffffff83c53209 in svc_process_common (rqstp=rqstp@entry=0xffff888008318000, 
+    argv=argv@entry=0xffff8880083181a0, resv=resv@entry=0xffff888008318280)
+    at net/sunrpc/svc.c:1339
+#5  0xffffffff83c53eee in svc_process (rqstp=rqstp@entry=0xffff888008318000)
+    at net/sunrpc/svc.c:1470
+#6  0xffffffff81f71eb3 in nfsd (vrqstp=0xffff888008318000) at fs/nfsd/nfssvc.c:978
+#7  0xffffffff8123d678 in kthread (_create=<optimized out>) at kernel/kthread.c:376
+#8  0xffffffff81006682 in ret_from_fork () at arch/x86/entry/entry_64.S:302
+#9  0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 10 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}

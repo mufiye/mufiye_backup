@@ -1,0 +1,84 @@
+Already logging to nfs_client_ls_file_gdb_log.txt.
+Continuing.
+[Switching to Thread 1.2]
+
+Thread 2 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800975e780) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800975e780) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88801875f5e8)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88801875f5e8)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=0xffff8880197f8000, 
+    server=server@entry=0xffff888008741000, msg=msg@entry=0xffff88801875f730, 
+    args=args@entry=0xffff88801875f6f0, res=res@entry=0xffff88801875f770, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e5ce15 in _nfs4_proc_getattr (server=server@entry=0xffff888008741000, 
+    fhandle=fhandle@entry=0xffff888014e5e080, fattr=fattr@entry=0xffff888016792400, 
+    inode=inode@entry=0xffff888014e5e218) at fs/nfs/nfs4proc.c:4306
+#5  0xffffffff81e5d063 in nfs4_proc_getattr (server=0xffff888008741000, 
+    fhandle=0xffff888014e5e080, fattr=0xffff888016792400, inode=0xffff888014e5e218)
+    at fs/nfs/nfs4proc.c:4318
+#6  0xffffffff81dcbb37 in __nfs_revalidate_inode (server=0xffff888008741000, 
+    inode=inode@entry=0xffff888014e5e218) at fs/nfs/inode.c:1219
+#7  0xffffffff81dade28 in nfs_access_get_cached_locked (inode=inode@entry=0xffff888014e5e218, cred=cred@entry=0xffff888010241500, mask=mask@entry=0xffff88801875f9d0, may_block=may_block@entry=true) at fs/nfs/dir.c:2932
+#8  0xffffffff81dae171 in nfs_access_get_cached (inode=inode@entry=0xffff888014e5e218, cred=cred@entry=0xffff888010241500, mask=mask@entry=0xffff88801875f9d0, may_block=may_block@entry=true) at fs/nfs/dir.c:2986
+#9  0xffffffff81db174d in nfs_do_access (inode=inode@entry=0xffff888014e5e218, cred=cred@entry=0xffff888010241500, mask=mask@entry=1) at fs/nfs/dir.c:3112
+#10 0xffffffff81db1de7 in nfs_permission (mnt_userns=mnt_userns@entry=0xffffffff84ecd3a0 <init_user_ns>, inode=inode@entry=0xffff888014e5e218, mask=mask@entry=1) at fs/nfs/dir.c:3225
+#11 0xffffffff8199eb81 in do_inode_permission (mask=1, inode=0xffff888014e5e218, mnt_userns=0xffffffff84ecd3a0 <init_user_ns>) at fs/namei.c:458
+#12 inode_permission (mnt_userns=mnt_userns@entry=0xffffffff84ecd3a0 <init_user_ns>, inode=0xffff888014e5e218, mask=mask@entry=1) at fs/namei.c:525
+#13 0xffffffff819a7a0f in may_lookup (nd=0xffff88801875fbc0, mnt_userns=0xffffffff84ecd3a0 <init_user_ns>) at fs/namei.c:1731
+#14 link_path_walk (name=0xffff888016573325 "hello13.txt", name@entry=0xffff888016573320 "/mnt/hello13.txt", nd=nd@entry=0xffff88801875fbc0) at fs/namei.c:2283
+#15 0xffffffff819a8b97 in path_lookupat (nd=nd@entry=0xffff88801875fbc0, flags=flags@entry=69, path=path@entry=0xffff88801875fd50) at fs/namei.c:2492
+#16 0xffffffff819abc58 in filename_lookup (dfd=dfd@entry=-100, name=name@entry=0xffff888016573300, flags=flags@entry=5, path=path@entry=0xffff88801875fd50, root=root@entry=0x0 <fixed_percpu_data>) at fs/namei.c:2522
+#17 0xffffffff81985276 in vfs_statx (dfd=dfd@entry=-100, filename=filename@entry=0xffff888016573300, flags=flags@entry=0, stat=stat@entry=0xffff88801875fdd8, request_mask=request_mask@entry=2) at fs/stat.c:228
+#18 0xffffffff81986364 in do_statx (dfd=dfd@entry=-100, filename=filename@entry=0xffff888016573300, flags=flags@entry=0, mask=mask@entry=2, buffer=buffer@entry=0x7ffeb1a03900) at fs/stat.c:629
+#19 0xffffffff8198641a in __do_sys_statx (buffer=0x7ffeb1a03900, mask=2, flags=0, filename=0x7ffeb1a03900 "\377\377\377\377\377\377\377\377", dfd=-100) at fs/stat.c:656
+#20 __se_sys_statx (dfd=4294967196, filename=filename@entry=140731878497965, flags=flags@entry=0, mask=mask@entry=2, buffer=buffer@entry=140731878488320) at fs/stat.c:647
+#21 0xffffffff81986504 in __x64_sys_statx (regs=0xffff88801875ff58) at fs/stat.c:647
+#22 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88801875ff58) at arch/x86/entry/common.c:50
+#23 do_syscall_64 (regs=0xffff88801875ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#24 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#25 0x000056022c9d1e78 in ?? ()
+#26 0x00007ffeb1a05ead in ?? ()
+#27 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 2 hit Breakpoint 1, rpc_execute (task=task@entry=0xffff88800975f040) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800975f040) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88801875f958)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88801875f958)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=0xffff8880197f8000, 
+    server=server@entry=0xffff888008741000, msg=msg@entry=0xffff88801875faa0, 
+    args=args@entry=0xffff88801875fa60, res=res@entry=0xffff88801875fae0, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e5ce15 in _nfs4_proc_getattr (server=server@entry=0xffff888008741000, 
+    fhandle=fhandle@entry=0xffff8880139db290, fattr=fattr@entry=0xffff888016792a00, 
+    inode=inode@entry=0xffff8880139db428) at fs/nfs/nfs4proc.c:4306
+#5  0xffffffff81e5d063 in nfs4_proc_getattr (server=0xffff888008741000, 
+    fhandle=0xffff8880139db290, fattr=0xffff888016792a00, inode=0xffff8880139db428)
+    at fs/nfs/nfs4proc.c:4318
+#6  0xffffffff81dcbb37 in __nfs_revalidate_inode (server=server@entry=0xffff888008741000, 
+    inode=inode@entry=0xffff8880139db428) at fs/nfs/inode.c:1219
+#7  0xffffffff81dccc0f in nfs_getattr (mnt_userns=mnt_userns@entry=0xffffffff84ecd3a0 <init_user_ns>, path=path@entry=0xffff88801875fd50, stat=stat@entry=0xffff88801875fdd8, request_mask=request_mask@entry=2, query_flags=query_flags@entry=0) at fs/nfs/inode.c:906
+#8  0xffffffff81982a42 in vfs_getattr_nosec (path=path@entry=0xffff88801875fd50, stat=stat@entry=0xffff88801875fdd8, request_mask=request_mask@entry=2, query_flags=query_flags@entry=0) at fs/stat.c:123
+#9  0xffffffff81982b64 in vfs_getattr (path=path@entry=0xffff88801875fd50, stat=stat@entry=0xffff88801875fdd8, request_mask=request_mask@entry=2, query_flags=query_flags@entry=0) at fs/stat.c:160
+#10 0xffffffff81985299 in vfs_statx (dfd=dfd@entry=-100, filename=filename@entry=0xffff888016573300, flags=flags@entry=0, stat=stat@entry=0xffff88801875fdd8, request_mask=request_mask@entry=2) at fs/stat.c:232
+#11 0xffffffff81986364 in do_statx (dfd=dfd@entry=-100, filename=filename@entry=0xffff888016573300, flags=flags@entry=0, mask=mask@entry=2, buffer=buffer@entry=0x7ffeb1a03900) at fs/stat.c:629
+#12 0xffffffff8198641a in __do_sys_statx (buffer=0x7ffeb1a03900, mask=2, flags=0, filename=0x7ffeb1a03900 "\377\377\377\377\377\377\377\377", dfd=-100) at fs/stat.c:656
+#13 __se_sys_statx (dfd=4294967196, filename=filename@entry=140731878497965, flags=flags@entry=0, mask=mask@entry=2, buffer=buffer@entry=140731878488320) at fs/stat.c:647
+#14 0xffffffff81986504 in __x64_sys_statx (regs=0xffff88801875ff58) at fs/stat.c:647
+#15 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88801875ff58) at arch/x86/entry/common.c:50
+#16 do_syscall_64 (regs=0xffff88801875ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#17 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#18 0x000056022c9d1e78 in ?? ()
+#19 0x00007ffeb1a05ead in ?? ()
+#20 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 2 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}

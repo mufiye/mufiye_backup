@@ -1,0 +1,46 @@
+Breakpoint 4 at 0xffffffff83c48b07: file net/sunrpc/sched.c, line 998.
+Continuing.
+
+Thread 2 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}
+Breakpoint 5 at 0xffffffff83c48b07: file net/sunrpc/sched.c, line 998.
+Continuing.
+
+Thread 2 hit Breakpoint 5, rpc_execute (task=task@entry=0xffff88800975f540) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800975f540) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff8880180f7b00)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff8880180f7b00)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff8880197f8000, 
+    server=server@entry=0xffff888008741000, msg=msg@entry=0xffff88800e8eb000, 
+    args=args@entry=0xffff88800e8eb020, res=res@entry=0xffff88800e8eb080, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e45dfe in nfs4_call_sync_sequence (clnt=clnt@entry=0xffff8880197f8000, 
+    server=server@entry=0xffff888008741000, msg=msg@entry=0xffff88800e8eb000, 
+    args=args@entry=0xffff88800e8eb020, res=res@entry=0xffff88800e8eb080) at fs/nfs/nfs4proc.c:1167
+#5  0xffffffff81e63e1d in nfs4_call_sync (clnt=0xffff8880197f8000, 
+    server=server@entry=0xffff888008741000, msg=msg@entry=0xffff88800e8eb000, 
+    args=args@entry=0xffff88800e8eb020, res=res@entry=0xffff88800e8eb080, 
+    cache_reply=cache_reply@entry=1) at fs/nfs/nfs4proc.c:1179
+#6  0xffffffff81e683db in nfs4_do_create (dir=dir@entry=0xffff888014e5e218, 
+    dentry=dentry@entry=0xffff888007137600, data=data@entry=0xffff88800e8eb000) at fs/nfs/nfs4proc.c:4974
+#7  0xffffffff81e68d89 in _nfs4_proc_mkdir (dir=dir@entry=0xffff888014e5e218, dentry=dentry@entry=0xffff888007137600, sattr=sattr@entry=0xffff8880180f7db0, label=label@entry=0x0 <fixed_percpu_data>) at fs/nfs/nfs4proc.c:5056
+#8  0xffffffff81e691bf in nfs4_proc_mkdir (dir=0xffff888014e5e218, dentry=0xffff888007137600, sattr=<optimized out>) at fs/nfs/nfs4proc.c:5078
+#9  0xffffffff81db0625 in nfs_mkdir (mnt_userns=<optimized out>, dir=0xffff888014e5e218, dentry=0xffff888007137600, mode=<optimized out>) at fs/nfs/dir.c:2353
+#10 0xffffffff819a14a9 in vfs_mkdir (mnt_userns=mnt_userns@entry=0xffffffff84ecd3a0 <init_user_ns>, dir=0xffff888014e5e218, dentry=dentry@entry=0xffff888007137600, mode=<optimized out>, mode@entry=511) at fs/namei.c:3975
+#11 0xffffffff819ad867 in do_mkdirat (dfd=dfd@entry=-100, name=0xffff88800f75b300, mode=mode@entry=511) at fs/namei.c:4001
+#12 0xffffffff819ada6b in __do_sys_mkdir (mode=511, pathname=0x7ffc0bad5eaa "mufiye_nfs_dir") at fs/namei.c:4021
+#13 __se_sys_mkdir (pathname=140720504397482, mode=mode@entry=511) at fs/namei.c:4019
+#14 0xffffffff819adacb in __x64_sys_mkdir (regs=0xffff8880180f7f58) at fs/namei.c:4019
+#15 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff8880180f7f58) at arch/x86/entry/common.c:50
+#16 do_syscall_64 (regs=0xffff8880180f7f58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#17 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#18 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 2 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}

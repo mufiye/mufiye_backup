@@ -1,0 +1,47 @@
+Continuing.
+
+Thread 2 hit Breakpoint 3, rpc_execute (task=task@entry=0xffff88800975eb40) at net/sunrpc/sched.c:998
+998	{
+#0  rpc_execute (task=task@entry=0xffff88800975eb40) at net/sunrpc/sched.c:998
+#1  0xffffffff83bf0c81 in rpc_run_task (task_setup_data=task_setup_data@entry=0xffff88801470f9a8)
+    at net/sunrpc/clnt.c:1153
+#2  0xffffffff81e45b6c in nfs4_call_sync_custom (task_setup=task_setup@entry=0xffff88801470f9a8)
+    at fs/nfs/nfs4proc.c:1124
+#3  0xffffffff81e45d23 in nfs4_do_call_sync (clnt=clnt@entry=0xffff8880197f8000, 
+    server=server@entry=0xffff888008741000, msg=msg@entry=0xffff88801470fb30, 
+    args=args@entry=0xffff88801470faf0, res=res@entry=0xffff88801470fb70, 
+    task_flags=task_flags@entry=4) at fs/nfs/nfs4proc.c:1154
+#4  0xffffffff81e45dfe in nfs4_call_sync_sequence (clnt=clnt@entry=0xffff8880197f8000, 
+    server=server@entry=0xffff888008741000, msg=msg@entry=0xffff88801470fb30, 
+    args=args@entry=0xffff88801470faf0, res=res@entry=0xffff88801470fb70) at fs/nfs/nfs4proc.c:1167
+#5  0xffffffff81e63e1d in nfs4_call_sync (clnt=0xffff8880197f8000, 
+    server=server@entry=0xffff888008741000, msg=msg@entry=0xffff88801470fb30, 
+    args=args@entry=0xffff88801470faf0, res=res@entry=0xffff88801470fb70, 
+    cache_reply=cache_reply@entry=0) at fs/nfs/nfs4proc.c:1179
+#6  0xffffffff81e681d5 in _nfs4_proc_statfs (server=server@entry=0xffff888008741000, 
+    fhandle=fhandle@entry=0xffff888014e5e080, fsstat=fsstat@entry=0xffff88801470fcd8) at fs/nfs/nfs4proc.c:5225
+#7  0xffffffff81e682e2 in nfs4_proc_statfs (server=0xffff888008741000, fhandle=0xffff888014e5e080, fsstat=0xffff88801470fcd8) at fs/nfs/nfs4proc.c:5235
+#8  0xffffffff81dcfc41 in nfs_statfs (dentry=0xffff888014c41c00, buf=0xffff88801470fe50) at fs/nfs/super.c:255
+#9  0xffffffff81a31a3c in statfs_by_dentry (dentry=0xffff888014c41c00, buf=buf@entry=0xffff88801470fe50) at fs/statfs.c:66
+#10 0xffffffff81a31c4c in vfs_statfs (path=path@entry=0xffff88801470fdd8, buf=buf@entry=0xffff88801470fe50) at fs/statfs.c:90
+#11 0xffffffff81a32bdc in user_statfs (pathname=pathname@entry=0x55bd644575e0 "/mnt", st=st@entry=0xffff88801470fe50) at fs/statfs.c:105
+#12 0xffffffff81a32c9b in __do_sys_statfs (pathname=pathname@entry=0x55bd644575e0 "/mnt", buf=buf@entry=0x7ffc73dd2840) at fs/statfs.c:195
+#13 0xffffffff81a32d09 in __se_sys_statfs (pathname=94271919453664, buf=buf@entry=140722252359744) at fs/statfs.c:192
+#14 0xffffffff81a32d65 in __x64_sys_statfs (regs=0xffff88801470ff58) at fs/statfs.c:192
+#15 0xffffffff83da6134 in do_syscall_x64 (nr=<optimized out>, regs=0xffff88801470ff58) at arch/x86/entry/common.c:50
+#16 do_syscall_64 (regs=0xffff88801470ff58, nr=<optimized out>) at arch/x86/entry/common.c:80
+#17 0xffffffff83e0007e in entry_SYSCALL_64 () at arch/x86/entry/entry_64.S:115
+#18 0x0000000000000001 in fixed_percpu_data ()
+#19 0x000055bd644575e0 in ?? ()
+#20 0x00007ffc73dd2840 in ?? ()
+#21 0x00007ffc73dd28e0 in ?? ()
+#22 0x000055bd644575e0 in ?? ()
+#23 0x00007ffc73dd2ac0 in ?? ()
+#24 0x0000000000000246 in ?? ()
+#25 0x00007ffc73dd2a3c in ?? ()
+#26 0x0000000000000000 in ?? ()
+Continuing.
+
+Thread 2 received signal SIGINT, Interrupt.
+0xffffffff83dcdbbb in native_safe_halt () at ./arch/x86/include/asm/irqflags.h:52
+52	}
